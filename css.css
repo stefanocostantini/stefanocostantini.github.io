@@ -1,0 +1,586 @@
+@charset "UTF-8";
+/* CSS Document */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+
+a {
+	color: #000;
+}
+
+p {
+	margin-top: -10px;
+}
+
+img {
+  cursor: pointer;
+}
+
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html {
+	text-align: left;
+	background-color: rgb(245, 245, 245);
+}
+
+#blackbar {
+	position: fixed;
+	top: 0px;
+	z-index: 5;
+	left: 0px;
+	width: 100%;
+	height: 120px;
+	background-color: #222222;
+	}
+	
+body {
+	width: 800px;
+	margin: 0 auto;
+	min-height: 100%;
+}
+
+#menu {
+	position: fixed;
+	display: block;
+	z-index: 5;
+	background-color: #222222;
+	width: 100%;
+	height: 120px;
+	font: 30px "Oswald", sans-serif;
+	text-align: left;
+	line-height: 120px;
+	}
+	
+#menu ul li {
+	float: left;
+	margin-left: 0px;
+	color: #999999;
+	}
+
+#menu ul li.selected {
+	color: #ffffff;
+	}
+
+#menu img {
+	margin-left: 370px;
+	margin-top: 10px;
+	}
+	
+#portrait {
+	position: fixed;
+	left: 800px;
+	top: 10px;
+	z-index: 11;
+	}
+	
+#main {
+	position: relative;
+	top: 150px;
+	display: block;
+	width: 800px;
+	height: 100%;
+	}
+	
+#main li {
+	float: left;
+	font: 20px "Oswald", sans-serif;
+	}
+	
+#container1a {
+	position: relative;
+	top: 0px;
+	display: block;
+	background-color: rgb(245, 245, 245);
+	width: 805px;
+	height: 125px;
+	}
+
+#container1a p {
+	padding-bottom: 20px;
+	line-height: 30px;
+	}
+
+#container1a a {
+	color: #000000;
+	}
+
+#doing_now {
+	font: 18px "Quicksand", sans-serif;
+	}
+	
+#container1b {
+	position: relative;
+	top: 210px;
+	display: block;
+	width: 405px;
+	height: 125px;
+	}
+
+#container1b img {
+
+	border: 1px solid #777777;
+	z-index: -10;
+	}
+
+#container1b a {
+	color: #000000;
+	}
+	
+#container1c {
+	position: relative;
+	top: 210px;
+	left: 90px;
+	width: 380px;
+}
+
+#spotify {
+	position: relative;
+	margin-top: 20px;
+}
+
+/* LEGACY CODE FOR GOODREADS WIDGET*/
+
+	gr_custom_container_1404576530 {
+  	/* customize your Goodreads widget container here*/
+    position: relative;
+    top: 10px;
+    background-color: rgb(245, 245, 245);
+    color: #000000;
+    width: 400px;
+    height: 150px;
+    font: 18px "Quicksand", sans-serif;
+  }
+
+.gr_custom_header_1404576530 {
+    /* customize your Goodreads header here*/
+	display: none; 
+    width: 100%;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 80%
+    border: 1px solid;
+  }
+  
+.gr_custom_each_container_1404576530 {
+    /* customize each individual book container here */
+    width: 100%;
+    clear: both;
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+  }
+  
+.gr_custom_each_container_1404576530 a {
+	position: relative;
+	text-decoration: none;
+	color: #000000;
+	
+	}
+
+.gr_custom_book_container_1404576530 {
+    /* customize your book covers here */
+    position: relative;
+    top: -30px;
+    left: 0px;
+    float: right;
+    margin-left: 4px;
+  	width: 100%;
+  	height: 100%;
+  }
+  
+.gr_custom_book_container_1404576530 img {
+	width: 100%;
+	height: 100%;
+	border: 10px solid #777777;
+	}  
+
+.gr_custom_author_1404576530 {
+    /* customize your author names here */
+    position: relative;
+    left: 0px;
+    font-size: 13px;
+    margin-top: 5px;
+    text-decoration: none;
+  }
+  
+.gr_custom_author_1404576530 a {
+    text-decoration: none;
+    color: #000000;
+  }
+
+/* END OF LEGACY CODE FOR GOODREADS WIDGET*/
+
+#goodreads_mask {
+	position: relative;
+	left: 0px;
+	color: rgb(245, 245, 245);
+	background-color: rgb(245, 245, 245);
+	display: block;
+	height: 200px;
+	width: 400px;
+	}
+
+#container2 {
+	position: relative;
+	top: -130px;
+	float: left;
+	clear: left;
+	display: block;
+	width: 805px;
+	height: 252px;
+	}
+
+#container2 ul {
+	position: relative;
+	top: 0px;
+	width: 800px;
+	}
+
+#container2 li {
+	font: 18px "Quicksand", sans-serif;
+	margin-top: 10px;
+	margin-right: 20px;
+	width: 350px;
+	}
+	
+#container2 li a {
+	color: #000000;
+	text-decoration: none;
+	}
+	
+.gmail_icon img {
+	display: inline-block;
+	position: relative;
+	width: 30px;
+	height: 30px;
+	top: 8px;
+	margin-right: 12px;
+	}
+
+.twitter_transp {
+	display: inline-block;
+	position: relative;
+	top: 8px;
+	margin-right: 12px;
+	text-indent: -9999px;
+	width: 30px;
+	height: 30px;
+	background:url(icons/social_icons_transp.svg) no-repeat;
+	background-position: -30px 0px;
+}
+
+.skype_transp{
+	display: inline-block;
+	position: relative;
+	top: 8px;
+	margin-right: 12px;
+	text-indent: -9999px;
+	width: 30px;
+	height: 30px;
+	background:url(icons/social_icons_transp.svg) no-repeat;
+	background-position: -30px -300px;
+}
+
+.linkedin_transp {
+	display: inline-block;
+	position: relative;
+	top: 8px;
+	margin-right: 12px;
+	text-indent: -9999px;
+	width: 30px;
+	height: 30px;
+	background:url(icons/social_icons_transp.svg) no-repeat;
+	background-position:-30px -30px;
+}
+
+.facebook_transp {
+	display: inline-block;
+	position: relative;
+	top: 8px;
+	margin-right: 12px;
+	text-indent: -9999px;
+	width: 30px;
+	height: 30px;
+	background:url(icons/social_icons_transp.svg) no-repeat;
+	background-position:-30px -180px;
+}
+
+.flickr_transp{
+	display: inline-block;
+	position: relative;
+	top: 8px;
+	margin-right: 12px;
+	text-indent: -9999px;
+	width: 30px;
+	height: 30px;
+	background:url(icons/social_icons_transp.svg) no-repeat;
+	background-position: -30px -900px;
+}
+
+#container3 {
+	position: relative;
+	top: 30px;
+	width: 800px; 
+	}
+
+#container3 p {
+	padding-bottom: 20px;
+	}
+	
+#container3 li.book {
+	float: left;
+	}
+
+#container3 li.book img {
+	width: 100px;
+	margin-top: 0px;
+	margin-right: 15px;
+	border: 1px solid #777777;
+	}
+	
+	
+#container3 li.book_description {
+	position: relative;
+	left: 0px;
+	width: 200px;
+	font: 18px "Quicksand", sans-serif;
+	}
+	
+.book_container {
+	position: relative;
+	top: 187px;
+	display:block;
+	background-color: #ccc;
+	width: 800px;
+	height: 350px;
+	margin-bottom: 200px;
+	
+	}
+
+.hide {
+  display: none;
+}
+
+#book_indicator_driftingaway {
+	position: absolute;
+	top: -14px;
+	left: 35px;
+	display: block;
+	width: 0px;
+	height: 0px;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 15px solid #ccc;
+}
+
+#book_indicator_wontcatchon {
+	position: absolute;
+	top: -14px;
+	left: 147px;
+	display: block;
+	width: 0px;
+	height: 0px;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 15px solid #ccc;
+}
+
+#book_indicator_unaltraoccasione {
+	position: absolute;
+	top: -14px;
+	left: 265px;
+	display: block;
+	width: 0px;
+	height: 0px;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 15px solid #ccc;
+}
+
+#book_indicator_nethelp {
+	position: absolute;
+	top: -14px;
+	left: 382px;
+	display: block;
+	width: 0px;
+	height: 0px;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 15px solid #ccc;
+}
+
+#book_indicator_alondonholiday {
+	position: absolute;
+	top: -14px;
+	left: 498px;
+	display: block;
+	width: 0px;
+	height: 0px;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 15px solid #ccc;
+}
+
+#book_image {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+#book_image img {
+	width: 68%;
+	height: 68%;
+	border: 1px solid #000;
+}
+
+#book_description {
+	position: absolute;
+	font: 15px "Quicksand", sans-serif;
+	top: 10px;
+	left: 240px;
+	width: 545px;
+}	
+
+#book_links {
+	position: absolute;
+	top: 180px;
+	left: 240px;
+	width: 545px;
+	height: 100px;
+	display: block;
+	font: 20px "Quicksand", sans-serif;
+}
+
+#book_links ul {
+	margin-top: 15px;
+}
+
+#book_links li {
+	width: 220px;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	font: 15px "Quicksand", sans-serif;
+	line-height: 30px;
+}
+
+#book_links li img {
+	position: float;
+	float: left;
+	margin-right: 10px;
+	border: 1px solid #000;
+}
+
+.book_close {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 310px;
+    right:7px;
+    cursor:pointer;
+    color: #fff;
+    border: 1px solid #AEAEAE;
+    border-radius: 30px;
+    background: #605F61;
+    line-height: 20px;
+    font-size: 40px;
+    text-align: center;
+}
+
+.book_close:before {
+    content: "×";
+
+}
+
+	
+#container4 {
+	position: relative;
+	top: 70px;
+	width: 800px;
+	text-align: right;
+	}
+	
+#container4 p {
+	padding-bottom: 20px;
+	}
+
+#container4 .photo_description {
+	position: relative;
+	text-align: right;
+	left: 85px;
+	top: -5px;
+	width: 200px;
+	font: 18px "Quicksand", sans-serif;
+	}
+	
+.flickr_badge_image {margin:0px;display:inline;}
+
+.flickr_badge_image img {border: 0px solid #666666 !important; padding:1px; margin-left:10px; width: 90px; height: 90px;}
+
+#flickr_badge_wrapper {width:520px; position: relative; top: -90px; left: 290px; text-align:left}
+
+#footer {
+	position: relative;
+	display: block;
+	top: -0px;
+	width: 800px;
+	height: 100px;
+	border-top: 1px dotted #000;
+	padding-top: 15px;
+}
+
+#copyright {
+	position: float;
+	float: left;
+	width: 175px;
+	height: 20px;
+	line-height: 20px;
+	font: 13px "Quicksand", sans-serif; 
+	}
+
+#updated {
+	position: float;
+	text-align: right;
+	float: right;
+	width: 120px;
+	height: 13px;
+	font: 13px "Quicksand", sans-serif;
+	}
