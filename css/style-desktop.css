@@ -208,6 +208,42 @@
 			font-size: 1.25em;
 			line-height: 1.5em;
 		}
+		
+	# methodology
+	{
+		text-align: left;
+	}
+	
+		#methodology h1
+		{
+			text-align: left;
+		}
+		
+		#methodology h3
+		{
+			text-align: left;
+		}
+		
+		#methodology ol {
+			margin-top: -10px;
+			list-style: disc;
+			padding-left: 2.5em;
+		}
+		
+		#methodology li 
+		{
+			text-align:left;
+			font-size: 1.25em;
+			line-height: 1.5em;
+			margin-top: 0em;
+		}
+	
+		#methodology p
+		{
+			font-size: 1.25em;
+			line-height: 1.5em;
+			text-align: left;
+		}
 	
 	
 		

@@ -535,6 +535,8 @@
 			{
 				list-style: decimal;
 				padding-left: 1.25em;
+				text-align: left;
+				text-size: 1.25em;
 			}
 
 				ol.default li
@@ -617,8 +619,8 @@
 		
 		.wrapper.style3
 		{
-			background-color: #f4f4f4;
-			text-shadow: 1px 1px 0px #fff;
+			background-color: #e4e4e4;
+			color: black;
 		}
 
 		.wrapper.style4
@@ -669,6 +671,7 @@
 		width: 100%;
 		z-index: 10000;
 		cursor: default;
+		font-size: 1.2em;
 	}
 	
 		#nav ul
