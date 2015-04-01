@@ -2,6 +2,8 @@
 library(dplyr)
 library(maptools)
 library(ggplot2)
+install.packages("gpclib")
+
 
 ## Load all the raw data and merge into single data frame
 data1995.2000 <- read.csv("house_prices/London Year_1995-2000.csv", header=T)
