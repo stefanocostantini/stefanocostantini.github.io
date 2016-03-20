@@ -7497,6 +7497,28 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Roboto Slab", arial, sans-serif;
 }
 
+img.topic-cloud {
+	#border: 1px solid #cccccc;
+	margin: 0.2em;
+	
+}
+
+ul.topics {
+	width: 100%;
+	list-style-type: none;
+	list-style-image: none;
+	float:left;
+	margin-bottom: 2em;
+	horizontal-align: center;
+}
+
+li.topics {
+	width: 200px;
+    display: inline-block;
+  
+    vertical-align: center;
+}
+
 #fh5co-portfolio {
   margin-bottom: 7em;
   padding-left: 4em;
