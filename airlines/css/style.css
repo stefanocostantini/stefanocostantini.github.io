@@ -7508,9 +7508,9 @@ ul.topics {
 	width: 100%;
 	list-style-type: none;
 	list-style-image: none;
-
 	width: 100%;
     margin: 0 auto; 
+
 }
 
 li.topics {
@@ -7519,8 +7519,32 @@ li.topics {
     margin-bottom: 20px;
 }
 
+ul.allocations {
+	width: 100%;
+	list-style-type: none;
+	list-style-image: none;
+	width: 100%;
+    margin: 0 auto; 
+}
+
+li.all-airline {
+	width: 200px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+#ownership {
+   text-align: center;
+}
+
+#ownership img{
+    margin: 0 auto; 
+}
+
 
 /** LIGHTBOX MARKUP **/
+
+
 
 .lightbox {
 	/** Default lightbox to hidden */
@@ -7528,7 +7552,7 @@ li.topics {
 
 	/** Position and style */
 	position: fixed;
-	z-index: 999;
+	z-index: 2;
 	width: 100%;
 	height: 100%;
 	text-align: center;
@@ -7542,7 +7566,7 @@ li.topics {
 	max-width: 80%;
 	max-height: 80%;
 	margin-top: 2%;
-	z-index: 999;
+	z-index: -999;
 }
 
 .lightbox:target {
@@ -7551,6 +7575,18 @@ li.topics {
 
 	/** Unhide lightbox **/
 	display: block;
+}
+
+.lightbox-wrapper {
+	z-index:999;
+}
+
+#sentiments img {
+	padding: 0.5em;
+}
+
+#airlines-allocation img{
+	padding: 0.5em;
 }
 
 /** END **/
@@ -7904,7 +7940,7 @@ pre {
   position: absolute;
   top: 15px;
   right: 0px;
-  z-index: 21;
+  z-index: 0;
   padding: 6px 0 0 0;
   display: block;
   margin: 0 auto;
