@@ -1194,6 +1194,14 @@
 				font-size: 11pt;
 				line-height: 1.75em;
 			}
+			
+			body {
+					background: url("images/rs.jpg") no-repeat center center fixed; ;
+		  			 -webkit-background-size: cover;
+		   			-moz-background-size: cover;
+				   -o-background-size: cover;
+  				   background-size: cover;
+			}
 
 			h1, h2 {
 				font-size: 1.75em;
