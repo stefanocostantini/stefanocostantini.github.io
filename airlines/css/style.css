@@ -7539,11 +7539,11 @@ li.all-airline {
 
 #ownership img{
     margin: 0 auto; 
+    width: 100%;
+    right: 0;
 }
 
-
 /** LIGHTBOX MARKUP **/
-
 
 
 .lightbox {
@@ -7745,7 +7745,7 @@ li.all-airline {
 }
 #fh5co-services .fh5co-service .fh5co-icon i {
   font-size: 40px;
-  color: #e32929;
+  color: #000000;
 }
 #fh5co-services .fh5co-service .fh5co-desc {
   width: 70%;
