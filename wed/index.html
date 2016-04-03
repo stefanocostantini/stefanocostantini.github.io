@@ -16,6 +16,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
 	    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
 	    <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
+	    
   
 	</head>
 	<body>
@@ -30,8 +31,10 @@
 
 						<!-- Me -->
 							<article id="me" class="panel">
+							
+							<div class="english">
 
-									<h1>We're getting married</h1>
+									<h1>In English:We're getting married</h1>
 									<h2>Barcelona, October 8th, 2016</h2>
 									<h3>Please save the date!</h3>
 									
@@ -41,9 +44,30 @@
 									
 									We'll be in touch soon with more details.</p>
 									
-									<languages>CATALÁ | ESPAÑOL | <en>ENGLISH</en> | ITALIANO</languages>
+									<languages>
+									<div class="cat">CATALÁ</div> | <div class="esp">ESPAÑOL</div> | <div class="eng"><en>ENGLISH</en></div> | <div class="ita">ITALIANO</div></languages>
+							</div>	
+							
+							<div class="spanish hide">
 
+									<h1>In Spanish</h1>
+									<h2>Barcelona, October 8th, 2016</h2>
+									<h3>Please save the date!</h3>
+									
+									<p>If there is a possibility that you will be able to attend, 
+									please let us know by filling in 
+									<a href="http://goo.gl/forms/foDKObbHXh">this form.</a> 
+									
+									We'll be in touch soon with more details.</p>
+									
+									<languages>
+									<div class="cat">CATALÁ</div> | <div class="esp"><en>ESPAÑOL</en></div> | <div class="eng">ENGLISH</div> | <div class="ita">ITALIANO</div></languages>
+							</div>	
+							
+							
 							</article>
+							
+							
 
 						
 					</div>
@@ -58,6 +82,27 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			
+			<script type="text/javascript">	
+				
+				
+				jQuery('.esp').on("click", function() {
+				jQuery('.english').fadeOut(500);
+				jQuery('.english').addClass('hide');
+				jQuery('.spanish').removeClass('hide');
+				jQuery('.spanish').fadeIn(500);
+				});
+				
+				jQuery('.eng').on("click", function() {
+				jQuery('.spanish').fadeOut(500);
+				jQuery('.spanish').addClass('hide');
+				jQuery('.english').removeClass('hide');
+				jQuery('.english').fadeIn(500);
+				});
+				
+				
+				
+			</script>
 
 	</body>
 </html>
