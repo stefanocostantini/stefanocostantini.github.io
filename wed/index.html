@@ -17,7 +17,7 @@
 	    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
 	    <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
 	    
-  
+	     
 	</head>
 	<body>
 
@@ -45,8 +45,43 @@
 									We'll be in touch soon with more details.</p>
 									
 									<languages>
-									<div class="cat">CATALÁ</div> | <div class="esp">ESPAÑOL</div> | <div class="eng"><en>ENGLISH</en></div> | <div class="ita">ITALIANO</div></languages>
-							</div>	
+										<span class="eng"><en>ENGLISH</en></span> | <span class="cat">CATALÁ</span> | <span class="ita">ITALIANO</span> | <span class="esp">ESPAÑOL</span>
+									</languages>
+							</div>
+							
+							<div class="italian hide">
+
+									<h1>In Italian</h1>
+									<h2>Barcelona, October 8th, 2016</h2>
+									<h3>Please save the date!</h3>
+									
+									<p>If there is a possibility that you will be able to attend, 
+									please let us know by filling in 
+									<a href="http://goo.gl/forms/foDKObbHXh">this form.</a> 
+									
+									We'll be in touch soon with more details.</p>
+									
+									<languages>
+										<span class="eng">ENGLISH</span> | <span class="cat">CATALÁ</span> | <span class="ita"><en>ITALIANO</en></span> | <span class="esp">ESPAÑOL</span>
+									</languages>
+							</div>
+							
+							<div class="catalan hide">
+
+									<h1>In Catalan</h1>
+									<h2>Barcelona, October 8th, 2016</h2>
+									<h3>Please save the date!</h3>
+									
+									<p>If there is a possibility that you will be able to attend, 
+									please let us know by filling in 
+									<a href="http://goo.gl/forms/foDKObbHXh">this form.</a> 
+									
+									We'll be in touch soon with more details.</p>
+									
+									<languages>
+										<span class="eng">ENGLISH</span> | <span class="cat"><en>CATALÁ</en></span> | <span class="ita">ITALIANO</span> | <span class="esp">ESPAÑOL</span>
+									</languages>
+							</div>				
 							
 							<div class="spanish hide">
 
@@ -61,9 +96,11 @@
 									We'll be in touch soon with more details.</p>
 									
 									<languages>
-									<div class="cat">CATALÁ</div> | <div class="esp"><en>ESPAÑOL</en></div> | <div class="eng">ENGLISH</div> | <div class="ita">ITALIANO</div></languages>
+										<span class="eng">ENGLISH</span> | <span class="cat">CATALÁ</span> | <span class="ita">ITALIANO</span> | <span class="esp"><en>ESPAÑOL</en></span>
+									</languages>
 							</div>	
 							
+							<script>jQuery('.spanish').fadeOut(500);</script>
 							
 							</article>
 							
@@ -84,21 +121,57 @@
 			<script src="assets/js/main.js"></script>
 			
 			<script type="text/javascript">	
+			
+				jQuery('.eng').on("click", function() {
+				jQuery('.spanish').fadeOut(500);
+				jQuery('.spanish').addClass('hide');
+				jQuery('.italian').fadeOut(500);
+				jQuery('.italian').addClass('hide');
+				jQuery('.catalan').fadeOut(500);
+				jQuery('.catalan').addClass('hide');
+				
+				jQuery('.english').removeClass('hide');
+				jQuery('.english').fadeIn(500);
+				});
+				
+				jQuery('.cat').on("click", function() {
+				jQuery('.spanish').fadeOut(500);
+				jQuery('.spanish').addClass('hide');
+				jQuery('.italian').fadeOut(500);
+				jQuery('.italian').addClass('hide');
+				jQuery('.english').fadeOut(500);
+				jQuery('.english').addClass('hide');
+				
+				jQuery('.catalan').removeClass('hide');
+				jQuery('.catalan').fadeIn(500);
+				});
+				
+				jQuery('.ita').on("click", function() {
+				jQuery('.spanish').fadeOut(500);
+				jQuery('.spanish').addClass('hide');
+				jQuery('.catalan').fadeOut(500);
+				jQuery('.catalan').addClass('hide');
+				jQuery('.english').fadeOut(500);
+				jQuery('.english').addClass('hide');
+				
+				jQuery('.italian').removeClass('hide');
+				jQuery('.italian').fadeIn(500);
+				});
 				
 				
 				jQuery('.esp').on("click", function() {
 				jQuery('.english').fadeOut(500);
 				jQuery('.english').addClass('hide');
+				jQuery('.italian').fadeOut(500);
+				jQuery('.italian').addClass('hide');
+				jQuery('.catalan').fadeOut(500);
+				jQuery('.catalan').addClass('hide');
+				
 				jQuery('.spanish').removeClass('hide');
 				jQuery('.spanish').fadeIn(500);
 				});
 				
-				jQuery('.eng').on("click", function() {
-				jQuery('.spanish').fadeOut(500);
-				jQuery('.spanish').addClass('hide');
-				jQuery('.english').removeClass('hide');
-				jQuery('.english').fadeIn(500);
-				});
+
 				
 				
 				

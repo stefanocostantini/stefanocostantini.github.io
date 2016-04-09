@@ -16,6 +16,7 @@
 		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
+		
 	}
 
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
@@ -752,6 +753,7 @@
 		   -moz-background-size: cover;
 		   -o-background-size: cover;
   		   background-size: cover;
+  		   
 	}
 
 		body.is-loading *, body.is-loading *:before, body.is-loading *:after {
@@ -1114,6 +1116,7 @@
 				border-radius: 5px;
 				text-align: right;
 				
+				
 			}
 			
 			#main h1 {
@@ -1157,11 +1160,12 @@
 			
 
 			languages {
-				position: absolute;
+				position: relative;
 				right: 50px;
-				top: 340px;
+				top: 250px;
 				font-size: 0.8em;
 				font-family: "Quicksand", sans-serif;
+				cursor: pointer;
 			}
 			
 
@@ -1179,9 +1183,8 @@
 			#me {
 
 				padding: 0;
-				height: 30em;
-				width: 100%;
-				border: 1px solid black;
+				height: 25em;
+				width: 100%;			
 			}
 			
 			.hide {
@@ -1206,6 +1209,11 @@
 		   		   -moz-background-size: cover;
 				   -o-background-size: cover;
   				   background-size: cover;
+  				   
+  				   -webkit-background-size: 100%; 
+    -moz-background-size: 100%; 
+    -o-background-size: 100%; 
+    background-size: 100%; 
 			}
 
 			h1, h2 {
@@ -1259,6 +1267,7 @@
 				width: 100%;
 				min-height: 100%;
 				color: #dddddd;
+
 			}
 			
 			#main {
@@ -1314,9 +1323,9 @@
 			
 			
 			languages {
-				position: absolute;
-				left: 15px;
-				top: 450px;
+				position: relative;
+				left: 0px;
+				top: 10px;
 				font-size: 1em;
 				font-family: "Quicksand", sans-serif;
 			}
