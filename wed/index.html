@@ -74,7 +74,7 @@
 									<h2>Barcelona, 8 Octubre 2016</h2>
 									<h3>Guarda la data!</h3>
 									
-									<p>Si ja saps si serà capaç d'assistir, 
+									<p>Si ja saps si seràs capaç d'assistir, 
 									si us plau contacta amb nosaltres omplint
 									<a href="http://goo.gl/forms/foDKObbHXh">aquest formulari.</a> 
 									
@@ -91,7 +91,7 @@
 									<h2>Barcelona, 8 Octubre 2016</h2>
 									<h3>Guarda la fecha!</h3>
 									
-									<p>Si ya sabes si será capaz de asistir, 
+									<p>Si ya sabes si serás capaz de asistir, 
 									por favor háznoslo saber rellenando
 									<a href="http://goo.gl/forms/foDKObbHXh">este formulario.</a> 
 									
@@ -102,7 +102,6 @@
 									</languages>
 							</div>	
 							
-							<script>jQuery('.spanish').fadeOut(500);</script>
 							
 							</article>
 							
@@ -123,54 +122,49 @@
 			<script src="assets/js/main.js"></script>
 			
 			<script type="text/javascript">	
+
 			
 				jQuery('.eng').on("click", function() {
-				jQuery('.spanish').fadeOut(500);
-				jQuery('.spanish').addClass('hide');
-				jQuery('.italian').fadeOut(500);
-				jQuery('.italian').addClass('hide');
-				jQuery('.catalan').fadeOut(500);
-				jQuery('.catalan').addClass('hide');
+				jQuery('.spanish').fadeOut(0);
+				jQuery('.italian').fadeOut(0);			
+				jQuery('.catalan').fadeOut(0);
+		
 				
-				jQuery('.english').removeClass('hide');
 				jQuery('.english').fadeIn(500);
+				jQuery('.english').removeClass('hide');
 				});
 				
 				jQuery('.cat').on("click", function() {
-				jQuery('.spanish').fadeOut(500);
-				jQuery('.spanish').addClass('hide');
-				jQuery('.italian').fadeOut(500);
-				jQuery('.italian').addClass('hide');
-				jQuery('.english').fadeOut(500);
-				jQuery('.english').addClass('hide');
+				jQuery('.spanish').fadeOut(0);
+				jQuery('.italian').fadeOut(0);
+				jQuery('.english').fadeOut(0);
+
 				
-				jQuery('.catalan').removeClass('hide');
 				jQuery('.catalan').fadeIn(500);
+				jQuery('.catalan').removeClass('hide');
 				});
 				
 				jQuery('.ita').on("click", function() {
-				jQuery('.spanish').fadeOut(500);
-				jQuery('.spanish').addClass('hide');
-				jQuery('.catalan').fadeOut(500);
-				jQuery('.catalan').addClass('hide');
-				jQuery('.english').fadeOut(500);
-				jQuery('.english').addClass('hide');
+				jQuery('.spanish').fadeOut(0);
+				jQuery('.catalan').fadeOut(0);
+				jQuery('.english').fadeOut(0);
+
 				
-				jQuery('.italian').removeClass('hide');
 				jQuery('.italian').fadeIn(500);
+				jQuery('.italian').removeClass('hide');
 				});
 				
 				
 				jQuery('.esp').on("click", function() {
-				jQuery('.english').fadeOut(500);
-				jQuery('.english').addClass('hide');
-				jQuery('.italian').fadeOut(500);
-				jQuery('.italian').addClass('hide');
-				jQuery('.catalan').fadeOut(500);
-				jQuery('.catalan').addClass('hide');
+							
+				jQuery('.english').fadeOut(0);
+				jQuery('.italian').fadeOut(0);
+				jQuery('.catalan').fadeOut(0);
+
 				
-				jQuery('.spanish').removeClass('hide');
 				jQuery('.spanish').fadeIn(500);
+				jQuery('.spanish').removeClass('hide');
+
 				});
 				
 
