@@ -760,7 +760,7 @@
 
 @media screen and (max-width: 1024px) {
     #backgrd {
-        left: 50%;
+        left: 40%;
         margin-left: -512px;
     }
 }
