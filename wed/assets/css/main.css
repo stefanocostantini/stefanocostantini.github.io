@@ -1067,11 +1067,9 @@
 			}
 
 			body {
-				width: 100%;
-				min-width: 1000px;
+
+				min-width: 100%;
 				min-height: 100%;
-				overflow-y: scroll;
-				background-attachment: fixed;
 				font-size: 14pt;
 				line-height: 1.75em;
 			}
@@ -1115,7 +1113,7 @@
 				width: 45em;
 				right: 0px;
 				opacity: 0.00001;
-				margin-top: 0px;
+
 				text-align: right;	
 			}
 
@@ -1124,10 +1122,9 @@
 
 			#main {
 				position: absolute;
-				top: 0.5em;
+				top: 0em;
+
 				width: 45em;
-				
-				border-radius: 5px;
 				text-align: right;
 				
 				
@@ -1273,10 +1270,6 @@
 		/* Panels */
 
 			#main {
-		
-				width: 100%;
-				min-height: 100%;
-
 
 			}
 			
