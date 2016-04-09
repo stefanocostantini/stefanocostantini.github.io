@@ -761,7 +761,7 @@
 @media screen and (max-width: 1024px) {
     #backgrd {
         left: 60%;
-        margin-left: -512px;
+        margin-left: -612px;
     }
 }
 
@@ -1273,10 +1273,10 @@
 		/* Panels */
 
 			#main {
-				background: rgba(0,0,0,0.5);
+		
 				width: 100%;
 				min-height: 100%;
-				color: #dddddd;
+
 
 			}
 			
@@ -1285,7 +1285,7 @@
 				width: 100%;
 				#border-radius: 5px;
 				text-align: left;
-				color: #dddddd;
+
 				
 			}
 			
@@ -1295,7 +1295,7 @@
 				font-family: "Great Vibes", cursive;
 				font-size: 3.5em;
 				line-height: 1em;
-				color: #dddddd;
+
 			}
 			
 			#main h2 {
@@ -1303,7 +1303,7 @@
 				font-size: 1.3em;
 				line-height: 2em;	
 				margin-right: 50px;
-				color: #dddddd;
+
 			}
 			
 			#main h3 {
@@ -1311,7 +1311,7 @@
 				font-size: 1.8em;
 				line-height: 2em;
 				margin-right: 50px;
-				color: #cccccc;
+
 			}
 			
 			#main p {
@@ -1324,11 +1324,11 @@
 				font-size: 1.2em;
 				line-height: 1.8em;
 				font-weight: bold;
-				color: #cccccc;
+
 			}
 			
 			#main a {
-				color: #eeeeee;
+				color: #000000;
 			}
 			
 			
