@@ -747,12 +747,26 @@
 
 /* Basic */
 
+
+#backgrd {
+    height: auto;
+    left: 0;
+    min-height: 100%;
+    min-width: 1024px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+    #backgrd {
+        left: 50%;
+        margin-left: -512px;
+    }
+}
+
 	body {
-		background: url("images/rs.jpg") no-repeat center center fixed;
-		   -webkit-background-size: cover;
-		   -moz-background-size: cover;
-		   -o-background-size: cover;
-  		   background-size: cover;
+
   		   
 	}
 
