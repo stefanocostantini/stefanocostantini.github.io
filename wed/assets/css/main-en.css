@@ -1199,6 +1199,13 @@
 				z-index: 10;
 			}
 
+			rsvp {
+				position: relative;
+				float: right;
+				bottom: 3em;
+				font-weight: bold;
+			}
+
 			#main h4 {
 				font-family: 'Aref Ruqaa', serif;
 				color: rgba(0,0,0,0.8);
