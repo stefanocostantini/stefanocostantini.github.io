@@ -1128,13 +1128,7 @@
     			width: 100%;
 			}
 
-			@media screen and (max-width: 1024px) {
-    		#backgrd {
-        	left: 50%;
-        	margin-left: -512px;
-    		}
-		}		
-			
+		
 			
 		/* Panels */
 
@@ -1370,6 +1364,11 @@
 				height: 100%;
 				width: 100%
 			}
+
+			#backgrd {
+        		margin-left: -512px;
+        		min-height: 100%;
+    		}
 
 		/* Panels */
 
