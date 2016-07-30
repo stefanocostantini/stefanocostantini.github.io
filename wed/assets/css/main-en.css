@@ -1364,12 +1364,11 @@
 			}
 
 			#backgrd {
-				height: 100%; 
-        		left: -300px; 
-        		position: fixed; 
-        		top: 0; 
-        		z-index: -5; 
-        		background: url("images/branch2.png") no-repeat right top;
+				position: relative;
+				bottom: 0;
+				float: right;
+				z-index: -20;
+
     		}
 
 		/* Panels */
