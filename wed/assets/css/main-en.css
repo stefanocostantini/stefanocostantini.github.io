@@ -1298,7 +1298,7 @@
 			
 			body {
 				 min-height:100%;
-				 background: url("images/branch2.png") no-repeat center center fixed;
+				 
 				 -webkit-background-size: cover;
 		   		 -moz-background-size: cover;
 				 -o-background-size: cover;
@@ -1371,7 +1371,12 @@
 			}
 
 			#backgrd {
-
+				height: 100%; 
+        		left: -300px; 
+        		position: fixed; 
+        		top: 0; 
+        		z-index: -5; 
+        		background: url("images/branch2.png") no-repeat right top;
     		}
 
 		/* Panels */
