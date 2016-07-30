@@ -1365,7 +1365,7 @@
 
 			#backgrd {
 				position: fixed;
-				left: -250px;
+				left: -50px;
 				bottom: 0;
 				float: right;
 				z-index: -20;
