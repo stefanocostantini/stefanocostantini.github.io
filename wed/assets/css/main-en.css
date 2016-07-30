@@ -1069,7 +1069,7 @@
 
 			body {
 				 min-height:100%;
-				 background: url("images/branch2.png") no-repeat center center fixed;
+				 
 		  		 -webkit-background-size: cover;
 		   		 -moz-background-size: cover;
 				 -o-background-size: cover;
@@ -1119,10 +1119,22 @@
 			}
 
 			#backgrd {
-				z-index: -10;
-				height: 50%;
+    			height: auto;
+    			left: 0;
+    			min-height: 100%;
+    			min-width: 1024px;
+    			position: fixed;
+    			top: 0;
+    			width: 100%;
 			}
 
+			@media screen and (max-width: 1024px) {
+    		#backgrd {
+        	left: 50%;
+        	margin-left: -512px;
+    		}
+		}		
+			
 			
 		/* Panels */
 
@@ -1309,8 +1321,7 @@
 			
 			body {
 				 min-height:100%;
-				 background: url("images/branch2.png") no-repeat center center fixed;
-		  		 -webkit-background-size: cover;
+				 -webkit-background-size: cover;
 		   		 -moz-background-size: cover;
 				 -o-background-size: cover;
   				 background-size: cover;
