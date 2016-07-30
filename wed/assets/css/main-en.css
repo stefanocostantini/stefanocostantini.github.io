@@ -1364,7 +1364,8 @@
 			}
 
 			#backgrd {
-				position: relative;
+				position: fixed;
+				left: -250px;
 				bottom: 0;
 				float: right;
 				z-index: -20;
