@@ -1163,6 +1163,8 @@
 				font-size: 1.5em;
 				line-height: 2em;	
 				margin-right: 50px;
+				font-weight: bold;
+
 			}
 			
 			#main h3 {
@@ -1177,7 +1179,8 @@
 				margin-top: 1em;
 				position: relative;
 				top: 1.5em;
-				border: 1px solid white;
+				
+
 			}
 
 			bird {
@@ -1197,8 +1200,9 @@
 			}
 
 			#main h4 {
-				font-family: "Quicksand", sans-serif;
-				font-size: 1.2em;
+				font-family: 'Aref Ruqaa', serif;
+				color: rgba(0,0,0,0.8);
+				font-size: 1.5em;
 				line-height: 1.5em;
 				margin-top: 15px;
 				margin-right: 50px;
@@ -1227,6 +1231,7 @@
 				margin-top: 10em;
 				font-size: 1em;
 				font-family: "Quicksand", sans-serif;
+				font-weight: bold;
 				line-height: 1.5em;
 				z-index: 10;
 			}
