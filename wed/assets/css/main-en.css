@@ -1367,7 +1367,8 @@
 
 			#backgrd {
         		margin-left: -512px;
-        		min-height: 100%;
+        		position: fixed;
+        		height: 100%;
     		}
 
 		/* Panels */
