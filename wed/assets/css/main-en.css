@@ -1108,20 +1108,21 @@
 			}
 
 			.mobile-menu-close {
-				display: hide;
+				display: none;
 			}
 
 			.mobile-menu-close hide {
-				display: hide;
+				display: none;
 			}
 
 			.mobile-options-box {
 				display: none;
 			}
 
-			.mobile-options-list {
+			.mobile-options-box hide {
 				display: none;
 			}
+
 		
 			
 		/* Panels */
@@ -1393,11 +1394,11 @@
 				font-family: "Quicksand", sans-serif;
 			}
 
-			#mobile-menu-close .hide {
+			.mobile-menu-close hide {
 				display: none;
 			}
 
-			#mobile-options-box {
+			.mobile-options-box {
 				position: fixed;
 				top: 100px;
 				width: 100%;
@@ -1406,7 +1407,11 @@
 				z-index: 50;
 			}
 
-			#mobile-options-list {
+			.mobile-options-box hide {
+				display: none;
+			}
+
+			.mobile-options-list {
 				margin: 0 auto;
 				width: 80%;
 				height: 100%;

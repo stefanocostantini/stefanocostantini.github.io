@@ -28,8 +28,8 @@
 			<div class="mobile-menu">MENU</div>
 			<div class="mobile-menu-close hide">CLOSE</div>
 
-			<div id="mobile-options-box">
-					<div id="mobile-options-list">TEST</div>
+			<div class="mobile-options-box hide">
+					<div class="mobile-options-list">TEST</div>
 			</div>
 
 				<!-- Main -->
@@ -144,8 +144,9 @@
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
 			
-			<script type="text/javascript">	
+			<!-- Desktop menu -->
 
+			<script type="text/javascript">	
 			
 				jQuery('.home').on("click", function() {
 				jQuery('.venue_page').fadeOut(0);
@@ -200,13 +201,34 @@
 				jQuery('.info_page').fadeIn(500);
 				jQuery('.info_page').removeClass('hide');
 				});
+			
 				
-				
-				
+			</script>
 
-				
-				
-				
+			<!-- Mobile menu -->
+
+			<script type="text/javascript">	
+
+				jQuery('.mobile-menu').on("click", function() {
+				jQuery('.mobile-menu').fadeOut(0);
+
+				jQuery('.mobile-menu-close').fadeIn(500);
+				jQuery('.mobile-menu-close').removeClass('hide');
+
+				jQuery('.mobile-options-box').fadeIn(500);
+				jQuery('.mobile-options-box').removeClass('hide');
+
+				});
+
+				jQuery('.mobile-menu-close').on("click", function() {
+				jQuery('.mobile-menu-close').fadeOut(0);
+				jQuery('.mobile-options-box').fadeOut(0);
+
+				jQuery('.mobile-menu').fadeIn(500);
+				jQuery('.mobile-menu').removeClass('hide');
+
+				});
+
 			</script>
 
 	</body>
