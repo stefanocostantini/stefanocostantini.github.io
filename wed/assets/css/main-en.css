@@ -1537,11 +1537,12 @@
 
 			bird {
 				position: relative;
-				margin-top: 5px;
+				margin-top: 0px;
 				display: block;
 				width: 100px;
 				height: 100px;
 				right: 0px;
+				top: 20px;
 				text-align: center;
 			}
 
