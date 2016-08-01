@@ -1123,6 +1123,17 @@
 				display: none;
 			}
 
+			.mobile-options-list {
+				display: none;
+			}
+
+			.mobile-options-list hide{
+				display: none;
+			}
+
+			.mobile-languages-list {
+				display: none;
+			}
 		
 			
 		/* Panels */
@@ -1257,6 +1268,7 @@
 			languages {
 				position: relative;
 				top: 20px;
+				right: 20px;
 				float: right;
 				clear: left;
 				display: block;
@@ -1265,21 +1277,24 @@
 				font-size: 0.7em;
 				line-height: 1em;
 				z-index: 2;
+				font-family: "Quicksand", sans-serif;
+				font-size: 20px;
 
 			}
 
-			languages img {
-				margin-left: 0.5em;
-				margin-right: 0.5em;
-				border-bottom: 1px dotted white;
-				padding-bottom: 5px;
+			.languages-desk {
+				margin-right: 10px;
 			}
 
-			languages img.selected {
+			.languages-desk.selected {
 				border-bottom: 1px dotted black;
 			}
 
-			languages img:hover {
+			.languages-desk a {
+				text-decoration: none;
+			}
+
+			.languages-desk a:hover {
 				border-bottom: 1px dotted black;
 			}
 			
@@ -1413,14 +1428,46 @@
 
 			.mobile-options-list {
 				margin: 0 auto;
+				padding-top: 15px;
 				width: 80%;
 				height: 100%;
 				display: block;
-				background-color: rgba(10,10,10,0.8);
+				background-color: rgba(10,10,10,0.9);
 				z-index: 50;
 				-webkit-border-radius: 15px;
                 -moz-border-radius: 15px;
 				border-radius: 15px;
+				font-family: "Quicksand", sans-serif;
+				color: rgb(220,220,220);
+				font-size: 25px;
+			}
+
+			.mobile-options-list li {
+				margin-top: 15px;
+				margin-bottom: 20px;
+			}
+
+			.mobile-languages-list {
+				margin: 0 auto;
+				padding-top: 25px;
+				width: 80%;
+				font-family: "Quicksand", sans-serif;
+				color: rgb(220,220,220);
+				font-size: 25px;
+				border-top: 1px dotted white;
+			}
+
+			.language {
+				color: rgb(220,220,220);
+			}
+
+			.language-selected {
+				border-bottom: 1px dotted white;
+			}
+
+			.language a {
+				text-decoration: none;
+				color: rgb(220,220,220);
 			}
 
 			#backgrd {
