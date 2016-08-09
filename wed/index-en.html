@@ -31,15 +31,15 @@
 			<div class="mobile-options-box hide">
 					<ul class="mobile-options-list">
 						<li class="home">Home</li>
-						<li class="venue">Venue & Transport</li>
+						<li class="venue">Venue</li>
+						<li class="transport">Transport</li>
 						<li class="accommodation">Accommodation</li>
-						<li class="photos">Photos</li>
 						<li class="info">Other information</li>
 					<div class="mobile-languages-list">
 						<span class="language-selected">ENG</span>
-						<span class="language"><a href="index-cat.html">CAT</a></span>
-						<span class="language"><a href="index-ita.html">ITA</a></span>
-						<span class="language"><a href="index-esp.html">ESP</a></span>
+						<span class="language"><!--<a href="index-cat.html">CAT</a>-->CAT</span>
+						<span class="language"><!--<a href="index-ita.html">ITA</a>-->ITA</span>
+						<span class="language"><!--<a href="index-esp.html">ESP</a>-->ESP</span>
 					</div>
 					</ul>
 			</div>
@@ -53,9 +53,9 @@
 							<languages>
 
 								<span class="languages-desk selected">ENG</span>
-								<span class="languages-desk"><a href="index-cat.html">CAT</a></span>
-								<span class="languages-desk"><a href="index-ita.html">ITA</a></span>
-								<span class="languages-desk"><a href="index-esp.html">ESP</a></span>
+								<span class="languages-desk"><!--<a href="index-cat.html">CAT</a>-->CAT</span>
+								<span class="languages-desk"><!--<a href="index-ita.html">ITA</a>-->ITA</span>
+								<span class="languages-desk"><!--<a href="index-esp.html">ESP</a>-->ESP</span>
 
 							</languages>	
 							
@@ -68,11 +68,13 @@
 								
 							<div class="home_page">
 									<pages>
-										<span class="home"><en>HOME</en></span> | <span class="venue">VENUE & TRANSPORT</span> | <span class="accommodation">ACCOMMODATION</span> | <span class="photos">PHOTOS</span> | <span class="info">OTHER INFORMATION</span>
+										<span class="home"><en>HOME</en></span> | <span class="venue">VENUE</span> | <span class="transport">TRANSPORT</span> | <span class="accommodation">ACCOMMODATION</span> | <span class="info">OTHER INFORMATION</span>
 									</pages>
 									<maintext>
 										<h4>We look forward to celebrating our wedding with you.</h4>
 										<h4>The wedding will start with the ceremony at about 5pm, followed by drinks, dinner and partying!</h4>
+
+										<h4>Please check the other pages for useful information!</h4>
 
 										<h4>If you haven't confirmed yet, please let us know whether you will be attending by emailing us at <a href="mailto:rsvp@ruthandstefano.net">rsvp@ruthandstefano.net</a></h4>
 
@@ -84,7 +86,7 @@
 
 												
 									<pages>
-										<span class="home">HOME</span> | <span class="venue"><en>VENUE & TRANSPORT</en></span> | <span class="accommodation">ACCOMMODATION</span> | <span class="photos">PHOTOS</span> | <span class="info">OTHER INFORMATION</span>
+										<span class="home">HOME</span> | <span class="venue"><en>VENUE</en></span> | <span class="transport">TRANSPORT</span> | <span class="accommodation">ACCOMMODATION</span> | <span class="info">OTHER INFORMATION</span>
 									</pages>
 									<maintext>
 										<h4>[ADD TEXT ON VENUE]</h4>
@@ -92,11 +94,23 @@
 
 							</div>
 
-							<div class="accommodation_page hide">
+							<div class="transport_page hide">
 
 												
 									<pages>
-										<span class="home">HOME</span> | <span class="venue">VENUE & TRANSPORT</span> | <span class="accommodation"><en>ACCOMMODATION</en></span> | <span class="photos">PHOTOS</span> | <span class="info">OTHER INFORMATION</span>
+										<span class="home">HOME</span> | <span class="venue">VENUE</span> | <span class="transport"><en>TRANSPORT</en></span> | <span class="accommodation">ACCOMMODATION</span> | <span class="info">OTHER INFORMATION</span>
+									</pages>
+									<maintext>
+										<h4>[ADD TEXT ON TRANSPORT]</h4>
+									</maintext>
+
+							</div>
+
+
+							<div class="accommodation_page hide">
+									
+									<pages>
+										<span class="home">HOME</span> | <span class="venue">VENUE</span> | <span class="transport">TRANSPORT</span> | <span class="accommodation"><en>ACCOMMODATION</en></span> | <span class="info">OTHER INFORMATION</span>
 									</pages>
 									<maintext>
 										<h4>[ADD TEXT ON ACCOMMODATION]</h4>
@@ -104,22 +118,10 @@
 
 							</div>
 
-
-							<div class="photos_page hide">
-									
-									<pages>
-										<span class="home">HOME</span> | <span class="venue">VENUE & TRANSPORT</span> | <span class="accommodation">ACCOMMODATION</span> | <span class="photos"><en>PHOTOS</en></span> | <span class="info">OTHER INFORMATION</span>
-									</pages>
-									<maintext>
-										<h4>[ADD TEXT ON PHOTOS]</h4>
-									</maintext>
-
-							</div>
-
 							<div class="info_page hide">
 									
 									<pages>
-										<span class="home">HOME</span> | <span class="venue">VENUE & TRANSPORT</span> | <span class="accommodation">ACCOMMODATION</span> | <span class="photos">PHOTOS</span> | <span class="info"><en>OTHER INFORMATION</en></span>
+										<span class="home">HOME</span> | <span class="venue">VENUE</span> | <span class="transport">TRANSPORT</span> | <span class="accommodation">ACCOMMODATION</span> | <span class="info"><en>OTHER INFORMATION</en></span>
 									</pages>
 									<maintext>
 										<h4>[ADD TEXT ON OTHER INFORMATION]</h4>
@@ -161,8 +163,8 @@
 			
 				jQuery('.home').on("click", function() {
 				jQuery('.venue_page').fadeOut(0);
+				jQuery('.transport_page').fadeOut(0);
 				jQuery('.accommodation_page').fadeOut(0);
-				jQuery('.photos_page').fadeOut(0);
 				jQuery('.info_page').fadeOut(0);
 				
 				jQuery('.home_page').fadeIn(500);
@@ -172,8 +174,8 @@
 
 				jQuery('.venue').on("click", function() {
 				jQuery('.home_page').fadeOut(0);
+				jQuery('.transport_page').fadeOut(0);
 				jQuery('.accommodation_page').fadeOut(0);
-				jQuery('.photos_page').fadeOut(0);
 				jQuery('.info_page').fadeOut(0);
 		
 				jQuery('.venue_page').fadeIn(500);
@@ -184,7 +186,7 @@
 				jQuery('.accommodation').on("click", function() {
 				jQuery('.home_page').fadeOut(0);
 				jQuery('.venue_page').fadeOut(0);
-				jQuery('.photos_page').fadeOut(0);
+				jQuery('.transport_page').fadeOut(0);
 				jQuery('.info_page').fadeOut(0);
 
 				jQuery('.accommodation_page').fadeIn(500);
@@ -192,22 +194,22 @@
 				});
 
 
-				jQuery('.photos').on("click", function() {
+				jQuery('.transport').on("click", function() {
 				jQuery('.home_page').fadeOut(0);
 				jQuery('.venue_page').fadeOut(0);
 				jQuery('.accommodation_page').fadeOut(0);
 				jQuery('.info_page').fadeOut(0);
 
-				jQuery('.photos_page').fadeIn(500);
-				jQuery('.photos_page').removeClass('hide');
+				jQuery('.transport_page').fadeIn(500);
+				jQuery('.transport_page').removeClass('hide');
 				});
 
 
 				jQuery('.info').on("click", function() {
 				jQuery('.home_page').fadeOut(0);
 				jQuery('.venue_page').fadeOut(0);
+				jQuery('.transport_page').fadeOut(0);
 				jQuery('.accommodation_page').fadeOut(0);
-				jQuery('.photos_page').fadeOut(0);
 
 				jQuery('.info_page').fadeIn(500);
 				jQuery('.info_page').removeClass('hide');
