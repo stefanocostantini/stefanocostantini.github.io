@@ -28,7 +28,8 @@
 	}
 
 	ol, ul {
-		list-style: none;
+		list-style: inside;
+		padding-left: 3px;
 	}
 
 	blockquote, q {
@@ -1012,7 +1013,7 @@
 
 	#main {
 		position: relative;
-		overflow: hidden;
+	
 	}
 
 	.panel {
@@ -1445,6 +1446,7 @@
 			.mobile-options-list li {
 				margin-top: 15px;
 				margin-bottom: 20px;
+				list-style: none;
 			}
 
 			.mobile-languages-list {
@@ -1561,6 +1563,7 @@
 				margin-top: 15px;
 				margin-right: 50px;
 			}
+
 			
 			#main p {
 				margin-top: 20px;
