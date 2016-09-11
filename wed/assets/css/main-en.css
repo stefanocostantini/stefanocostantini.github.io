@@ -1212,6 +1212,7 @@
 			}
 
 			rsvp {
+				display: none;
 				position: relative;
 				float: right;
 				bottom: 3em;
@@ -1602,6 +1603,7 @@
 			}
 
 			rsvp {
+				display: none;
 				position: relative;
 				top: -70px;
 				left: 100px;
