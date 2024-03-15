@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  color: #111;
+  background-color: #ddd;
+}
+
+header, main, footer {
+  padding-left: 25px;
+  padding-top: 5px;
+  padding-right: 25px;
+  text-align: left;
+}
+
+hr {
+  color: #888;
+}
+
+h1 {
+  font-size: 2.2em;
+  margin-bottom: 1px;
+  #text-decoration: underline;
+  #text-decoration-color: blue;
+}
+
+h2 {
+  font-size: 1.6em;	
+}
+  
+p li {
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+footer p {
+  font-size: 1em;
+  margin-top: 20px;
+}
+
+/* Responsiveness */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+	font-size: 1.2em;
+  }
+
+  p li {
+    font-size: 1em;
+  }
+}
