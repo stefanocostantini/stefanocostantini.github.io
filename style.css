@@ -51,7 +51,7 @@ p {
 /* Books gallery */
 
 .books {
-	list-style-type: none; /* Remove bullets */
+  list-style-type: none; /* Remove bullets */
   padding: 0; /* Remove padding */
   margin: 0; /* Remove margins */
 }
@@ -68,6 +68,21 @@ p {
   border: 1px solid #777;
   height: 200px;
 }
+
+/* Photo gallery */
+
+.photo_gallery {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.photo_gallery img {
+  border: 5px solid #fff;
+  height: 700px;	
+}
+
+
 
 /* Footer */
 
