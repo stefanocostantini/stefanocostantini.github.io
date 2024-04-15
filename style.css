@@ -78,8 +78,8 @@ p {
 }
 
 .photo_gallery img {
-  border: 5px solid #fff;
-  height: 700px;	
+  border: 10px solid #fff;
+  height: 400px;	
 }
 
 
@@ -121,5 +121,11 @@ footer p {
   .books li img {
     height: 100px;
   }
+
+  .photo_gallery li img {
+    border: 5px solid #fff;
+    height: 100px;
+  }
+
   
 }
