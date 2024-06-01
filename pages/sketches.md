@@ -1,5 +1,5 @@
 ---
-Title: Sketches
+title: Sketches
 ---
 
 These are some of my sketches

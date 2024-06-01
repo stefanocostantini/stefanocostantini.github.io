@@ -1,5 +1,5 @@
 ---
-Title: Photos
+title: Photos
 ---
 
 These are some of my photos
