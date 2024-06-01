@@ -13,7 +13,7 @@ var config = {
   github: {
     username: 'stefanocostantini',
     repo: 'stefanocostantini.github.io',
-    branch: 'master',
+    branch: 'gh-pages',
     host: 'https://api.github.com',
     // Use prefix option if your site is located in a subdirectory.
     // prefix: 'subdirectory',
