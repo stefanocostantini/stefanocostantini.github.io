@@ -1,0 +1,17 @@
+<!-- Sketch List Template -->
+<!-- Borrowing classes from posts for now -->
+<div class="posts-list fade-in">
+  <% data.sketches.forEach(function(sketch) { %>
+    <% if(!sketch.draft) { %>
+      <article class="post">
+        <h1 class="post-title">
+          <a href="<%= sketch.permalink %>"><%= sketch.title %></a>
+        </h1>
+        <time class="post-date"><%= sketch.date %></time>
+        <div class="post-content">
+          <p><%= sketch.body %></p>
+        </div>
+      </article>
+    <% } %>
+  <% }) %>
+</div>
