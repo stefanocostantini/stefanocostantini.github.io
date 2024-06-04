@@ -41,7 +41,7 @@ var config = {
     },
     {
     name: 'sketches',
-      layout: { list: 'post-list', single: 'post' },
+      layout: { list: 'sketch-list', single: 'sketch' },
     },
     {
       name: 'pages',
