@@ -13,7 +13,7 @@ var config = {
   github: {
     username: 'stefanocostantini',
     repo: 'stefanocostantini.github.io',
-    branch: 'gh-pages',
+    branch: 'master',
     host: 'https://api.github.com',
     // Use prefix option if your site is located in a subdirectory.
     // prefix: 'subdirectory',
@@ -28,7 +28,7 @@ var config = {
   // The URL that will be the default view that will initially load
   // For example, this could a list view or a could be a specific view
   // like a single page.
-  defaultView: 'about',
+  defaultView: 'pages/about',
 
   // These are the types of content to load. Each type name is a directory or
   // folder where the files, pages or posts are located. Each type has a list
