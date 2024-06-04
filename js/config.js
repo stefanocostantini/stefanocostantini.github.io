@@ -40,6 +40,10 @@ var config = {
       layout: { list: 'post-list', single: 'post' },
     },
     {
+    name: 'sketches',
+      layout: { list: 'post-list', single: 'post' },
+    },
+    {
       name: 'pages',
       layout: { list: 'page-list', single: 'page' },
     },
