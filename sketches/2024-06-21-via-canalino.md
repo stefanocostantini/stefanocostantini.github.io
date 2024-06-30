@@ -5,6 +5,6 @@ tags: city, modena
 author: sc
 ---
 
-![Via Canalino](/img/sketches/via_canalino.jpg)
+![Via Canalino](/img/sketches/canalino.jpg)
 
 A glimpse of Modena's city centre. A very sunny (and hot) day.
