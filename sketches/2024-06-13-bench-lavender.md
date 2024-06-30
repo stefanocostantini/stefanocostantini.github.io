@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: sketch
 title: Bench with lavender
 tags: nature
 author: sc

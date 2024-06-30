@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: sketch
 title: A first sketch
 tags: london
 author: sc
