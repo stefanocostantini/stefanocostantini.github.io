@@ -5,4 +5,6 @@ tags: nature
 author: sc
 ---
 
-![Mailbox sketch](/img/sketches/IMG_0268.PNG)
+![Bench](/img/sketches/lavender_bench.jpg)
+
+A bench I've seen during a recent hike in Surrey. But it could be anywhere...

@@ -1,8 +1,10 @@
 ---
 layout: sketch
-title: A first sketch
+title: Mailbox
 tags: london
 author: sc
 ---
 
-![Mailbox sketch](/img/sketches/IMG_0260.PNG)
+![Mailbox](/img/sketches/mailbox.jpg)
+
+An old mailbox in my street...
