@@ -1,6 +1,6 @@
 ---
 layout: sketch
-title: Bench with lavender
+title: Canary Wharf
 tags: london, city
 author: sc
 ---

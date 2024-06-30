@@ -1,6 +1,6 @@
 ---
 layout: sketch
-title: Bench with lavender
+title: Bench With Lavender
 tags: nature
 author: sc
 ---
