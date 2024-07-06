@@ -1,7 +1,7 @@
 <!-- Sketch List Template -->
 <!-- Borrowing classes from posts for now -->
 <div class="posts-list fade-in">
-  <% data.sketches.forEach(function(sketch) { %>
+  <% data.sketches.reverse_forEach(function(sketch) { %>
     <% if(!sketch.draft) { %>
       <article class="post">
         <h1 class="post-title">
