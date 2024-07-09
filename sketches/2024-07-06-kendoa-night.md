@@ -1,7 +1,7 @@
 ---
 layout: sketch
 title: Night Sketch
-tags: city, london, night
+tags: city, london, night, watercolours
 author: sc
 ---
 
