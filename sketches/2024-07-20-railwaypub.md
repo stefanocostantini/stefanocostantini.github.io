@@ -7,4 +7,4 @@ author: sc
 
 ![Railway](/img/sketches/railwaypub.jpg)
 
-The Railway pub (or tavern) in Clapham, on a early summer evening.
+The Railway pub (or tavern) in Clapham, on an early summer evening.
