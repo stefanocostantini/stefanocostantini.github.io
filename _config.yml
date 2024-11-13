@@ -1,0 +1,19 @@
+# Create this as _config.yml
+title: Your Name - Portfolio
+description: Personal website and sketch gallery
+
+# Build settings
+plugins:
+  - jekyll-sitemap
+
+# Exclude directories and/or files from the conversion
+exclude:
+  - README.md
+  - .gitignore
+
+# Include directories and/or files in the conversion
+include:
+  - _data
+
+# Directory settings
+data_dir: _data
