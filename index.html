@@ -1,59 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stefano Costantini</title>
-    <meta name="description" content="personal site">
-    <meta name="author" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
-    <link rel="stylesheet" href="./css/animations.css">
-    <link rel="stylesheet" href="./css/poole.min.css">
-    <link rel="stylesheet" href="./css/poole.overrides.min.css">
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <noscript>Please enable JavaScript to view this site.</noscript>
-  </head>
-  <body>
-    <!-- Main Container -->
-    <div class="container content">
-      <!-- Header -->
-      <header class="masthead">
-        <h3 class="masthead-title">
-        <a href="#" class="sitename" title="Home">
-          SC
-        </a>
-        <small class="tagline">
-          a bit of everything...
-        </small>
-        </h3>
-        <!-- Navigation -->
-        <nav class="nav">
-          <ul>
-        	  <li><a href="#/pages/about">About</a></li>
-            <li><a href="#/sketches">Sketches</a></li>
-            <li><a href="#/pages/photos">Photos</a></li>
-		        <li><a href="#/posts">Thoughts</a></li>
-          </ul>
-        </nav>
-      </header>
+    <title>John Doe - Personal Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="gallery.html">Sketch Gallery</a></li>
+        </ul>
+    </nav>
 
-      <!-- CMS -->
-      <div id="cms"></div>
+    <header>
+        <img src="images/banner-placeholder.jpg" alt="Banner Image" class="banner">
+        <h1>John Doe</h1>
+        <p class="subtitle">Artist & Developer</p>
+    </header>
 
-      <!-- Footer -->
-      <footer class="footer">
-        <small class="footer-text">
-        </small>
-      </footer>
-    </div>
+    <main>
+        <section class="about">
+            <img src="images/profile-placeholder.jpg" alt="Profile Picture" class="profile">
+            <h2>About Me</h2>
+            <p>Hello! I'm a passionate artist and developer based in [City]. I love creating digital art and exploring new technologies. When I'm not coding, you can find me sketching or experimenting with new art techniques.</p>
+        </section>
 
-    <!-- ES5 Polyfills -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.12/es5-shim.min.js"></script>
-    <!-- CMS.js -->
-    <script src="./js/cms.js"></script>
-    <!-- Config -->
-    <script src="./js/config.js"></script>
-  </body>
+        <section class="highlights">
+            <h2>Recent Work</h2>
+            <div class="work-grid">
+                <a href="gallery.html" class="work-item">
+                    <img src="sketches/sketch1.jpg" alt="Sketch Preview">
+                    <p>View My Sketch Gallery →</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 John Doe. All rights reserved.</p>
+    </footer>
+</body>
 </html>
