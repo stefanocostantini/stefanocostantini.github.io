@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     async function loadImages() {
         try {
             // Fetch the image list from our text file
-            const response = await fetch('/sketches/_imagelist.txt');
+            const response = await fetch('/sketches/000_imagelist.txt');
             const text = await response.text();
             
             // Convert text file into array of image paths
