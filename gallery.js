@@ -5,22 +5,27 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
     let images = [];
 
-    // Function to load images from the generated JSON file
+    // Function to load images from the text file
     async function loadImages() {
         try {
-            // Fetch the image list from our generated JSON
-            const response = await fetch('/data/sketches.json');
-            const imageFiles = await response.json();
+            // Fetch the image list from our text file
+            const response = await fetch('/sketches/_imagelist.txt');
+            const text = await response.text();
             
-            images = imageFiles;
+            // Convert text file into array of image paths
+            // Filter out empty lines and comments
+            images = text.split('\n')
+                .map(line => line.trim())
+                .filter(line => line && !line.startsWith('#'))
+                .map(filename => `/sketches/${filename}`);
             
             // Create gallery items
-            imageFiles.forEach((src, index) => {
+            images.forEach((src, index) => {
                 const item = document.createElement('div');
                 item.className = 'gallery-item';
                 
                 const img = document.createElement('img');
-                img.src = '/' + src; // Add leading slash for absolute path
+                img.src = src;
                 img.alt = `Sketch ${index + 1}`;
                 
                 // Add image title from filename
@@ -36,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         } catch (error) {
             console.error('Error loading images:', error);
-            // Fallback message if gallery can't be loaded
             gallery.innerHTML = '<p>Unable to load gallery images. Please try again later.</p>';
         }
     }
@@ -44,10 +48,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Open lightbox
     function openLightbox(index) {
         currentIndex = index;
-        lightboxImg.src = '/' + images[currentIndex];
+        lightboxImg.src = images[currentIndex];
         lightbox.style.display = 'block';
-        
-        // Update URL with current image (for sharing)
+        updateHash();
+    }
+
+    // Update URL hash
+    function updateHash() {
         const imageName = images[currentIndex].split('/').pop();
         history.replaceState(null, null, `#${imageName}`);
     }
@@ -61,17 +68,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Previous image
     document.querySelector('.prev').addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + images.length) % images.length;
-        lightboxImg.src = '/' + images[currentIndex];
-        const imageName = images[currentIndex].split('/').pop();
-        history.replaceState(null, null, `#${imageName}`);
+        lightboxImg.src = images[currentIndex];
+        updateHash();
     });
 
     // Next image
     document.querySelector('.next').addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % images.length;
-        lightboxImg.src = '/' + images[currentIndex];
-        const imageName = images[currentIndex].split('/').pop();
-        history.replaceState(null, null, `#${imageName}`);
+        lightboxImg.src = images[currentIndex];
+        updateHash();
     });
 
     // Close on outside click
@@ -90,26 +95,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 history.replaceState(null, null, ' ');
             } else if (e.key === 'ArrowLeft') {
                 currentIndex = (currentIndex - 1 + images.length) % images.length;
-                lightboxImg.src = '/' + images[currentIndex];
-                const imageName = images[currentIndex].split('/').pop();
-                history.replaceState(null, null, `#${imageName}`);
+                lightboxImg.src = images[currentIndex];
+                updateHash();
             } else if (e.key === 'ArrowRight') {
                 currentIndex = (currentIndex + 1) % images.length;
-                lightboxImg.src = '/' + images[currentIndex];
-                const imageName = images[currentIndex].split('/').pop();
-                history.replaceState(null, null, `#${imageName}`);
+                lightboxImg.src = images[currentIndex];
+                updateHash();
             }
         }
     });
 
     // Check for direct link to image
-    if (window.location.hash) {
-        const imageName = window.location.hash.slice(1);
-        const imageIndex = images.findIndex(src => src.includes(imageName));
-        if (imageIndex !== -1) {
-            openLightbox(imageIndex);
+    window.addEventListener('load', () => {
+        if (window.location.hash && images.length > 0) {
+            const imageName = window.location.hash.slice(1);
+            const imageIndex = images.findIndex(src => src.includes(imageName));
+            if (imageIndex !== -1) {
+                openLightbox(imageIndex);
+            }
         }
-    }
+    });
 
     // Load images when the page loads
     loadImages();
