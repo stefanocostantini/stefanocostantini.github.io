@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     async function loadImages() {
         try {
             // Fetch the image list from our text file
-            const response = await fetch('/sketches/000_imagelist.txt');
+            const response = await fetch('/sketches/black_and_white/black_and_white_imagelist.txt');
             const text = await response.text();
             
             // Convert text file into array of image paths
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
             images = text.split('\n')
                 .map(line => line.trim())
                 .filter(line => line && !line.startsWith('#'))
-                .map(filename => `/sketches/${filename}`);
+                .map(filename => `/sketches/black_and_white/${filename}`);
             
             // Clear loading state
             gallery.innerHTML = '';
