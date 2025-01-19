@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const gallery = document.getElementById('gallery');
+    const gallery_watercolours = document.getElementById('gallery-watercolours');
+    const gallery_digital = document.getElementById('gallery-digital');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     let currentIndex = 0;
@@ -12,23 +14,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Show loading state
     gallery.innerHTML = '<div class="loading">Loading gallery</div>';
+    gallery_watercolours.innerHTML = '<div class="loading">Loading gallery</div>';
+    gallery_digital.innerHTML = '<div class="loading">Loading gallery</div>';
 
     // Function to load images from the text file
-    async function loadImages() {
+    async function loadGalleryImages(galleryElement, imageListPath, baseImagePath = '', onImageClick = null) {
+        if (!galleryElement || typeof imageListPath !== 'string') {
+            throw new Error('Gallery element and image list path are required');
+        }
+    
         try {
-            // Fetch the image list from our text file
-            const response = await fetch('/sketches/black_and_white/black_and_white_imagelist.txt');
+            // Fetch the image list from the specified text file
+            const response = await fetch(imageListPath);
             const text = await response.text();
             
             // Convert text file into array of image paths
             // Filter out empty lines and comments
-            images = text.split('\n')
+            const images = text.split('\n')
                 .map(line => line.trim())
                 .filter(line => line && !line.startsWith('#'))
-                .map(filename => `/sketches/black_and_white/${filename}`);
+                .map(filename => baseImagePath ? `${baseImagePath}/${filename}` : filename);
             
             // Clear loading state
-            gallery.innerHTML = '';
+            galleryElement.innerHTML = '';
             
             // Create gallery items
             images.forEach((src, index) => {
@@ -49,15 +57,48 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 item.appendChild(img);
                 item.appendChild(title);
-                gallery.appendChild(item);
+                galleryElement.appendChild(item);
+    
+                // Handle click events with the images array
+                item.addEventListener('click', () => {
+                    console.log('Click handler called with:',
+                        {
+                            index: index,
+                            currentImage: src,
+                            allImages: images
+                        }
+                    );
 
-                item.addEventListener('click', () => openLightbox(index));
+                    if (typeof onImageClick === 'function') {
+                        onImageClick(index, images);
+                    }
+                });
             });
+    
+            return images; // Return the array of image paths for potential further use
         } catch (error) {
             console.error('Error loading images:', error);
-            gallery.innerHTML = '<p>Unable to load gallery images. Please try again later.</p>';
+            galleryElement.innerHTML = '<p>Unable to load gallery images. Please try again later.</p>';
+            throw error;
         }
     }
+
+
+    // LOAD THE SKETCHES GALLERIES
+    // Calling the function for the black and white gallery
+
+    loadGalleryImages(
+        gallery,
+        '/sketches/black_and_white/black_and_white_imagelist.txt',
+        '/sketches/black_and_white',
+        openLightbox
+    )
+
+    // Calling the function for the watercolours gallery
+
+    // Calling the function for the digital gallery
+    
+
 
     function createSwipeHint() {
         if (!swipeHint) {
@@ -116,7 +157,13 @@ document.addEventListener('DOMContentLoaded', function() {
         history.replaceState(null, null, `#${imageName}`);
     }
 
-    function openLightbox(index) {
+    function openLightbox(index, images) {
+        console.log('Lightbox opened with:', {
+            index: index,
+            currentImage: images[index],
+            totalImages: images.length,
+            allImages: images
+        })
         currentIndex = index;
         lightboxImg.src = images[currentIndex];
         lightbox.style.display = 'block';
