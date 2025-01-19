@@ -61,21 +61,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
                 // Handle click events with the images array
                 item.addEventListener('click', () => {
-                    console.log('Click handler called with:',
-                        {
-                            index: index,
-                            currentImage: src,
-                            allImages: images
-                        }
-                    );
-
-                    if (typeof onImageClick === 'function') {
+                        if (typeof onImageClick === 'function') {
                         onImageClick(index, images);
                     }
                 });
             });
     
-            return images; // Return the array of image paths for potential further use
+                return images; // Return the array of images for potential further use
         } catch (error) {
             console.error('Error loading images:', error);
             galleryElement.innerHTML = '<p>Unable to load gallery images. Please try again later.</p>';
@@ -91,13 +83,24 @@ document.addEventListener('DOMContentLoaded', function() {
         gallery,
         '/sketches/black_and_white/black_and_white_imagelist.txt',
         '/sketches/black_and_white',
-        openLightbox
+        openLightbox,
     )
 
     // Calling the function for the watercolours gallery
+    loadGalleryImages(
+        gallery_watercolours,
+        '/sketches/watercolours/watercolours_imagelist.txt',
+        '/sketches/watercolours',
+        openLightbox,
+    )
 
     // Calling the function for the digital gallery
-    
+    loadGalleryImages(
+        gallery_digital,
+        '/sketches/digital/digital_imagelist.txt',
+        '/sketches/digital',
+        openLightbox,
+    )
 
 
     function createSwipeHint() {
@@ -153,19 +156,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function updateHash() {
-        const imageName = images[currentIndex].split('/').pop();
+        const imageName = paths[currentIndex].split('/').pop();
         history.replaceState(null, null, `#${imageName}`);
     }
 
-    function openLightbox(index, images) {
-        console.log('Lightbox opened with:', {
-            index: index,
-            currentImage: images[index],
-            totalImages: images.length,
-            allImages: images
-        })
+    function openLightbox(index, paths) {
         currentIndex = index;
-        lightboxImg.src = images[currentIndex];
+        lightboxImg.src = paths[currentIndex];
         lightbox.style.display = 'block';
         updateHash();
         document.body.style.overflow = 'hidden'; // Prevent scrolling
