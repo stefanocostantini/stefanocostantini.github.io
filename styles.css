@@ -135,11 +135,21 @@ section {
 }
 
 /* Gallery Grid */
+
+.gallery-container {
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    border: 1px dashed white;
+}
+
 .gallery-grid {
     display: grid;
-    gap: 10px;
-    padding: 10px;
+    grid-template-columns: repeat(auto-fit, 110px);
     width: 100%;
+    box-sizing: border-box;
 }
 
 .gallery-item {
@@ -149,7 +159,6 @@ section {
     position: relative;
     border-radius: 0px;
     overflow: hidden;
-    background: var(--light-gray);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                 box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -310,24 +319,15 @@ section {
 
 /* For mobile screens */
 @media (max-width: 480px) {
-    .gallery-grid {
-        grid-template-columns: repeat(2, 100px);
-    }
 }
 
 /* For tablet screens */
 @media (min-width: 481px) and (max-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: repeat(4, 100px);
-    }
 }
 
 /* For desktop screens */
 @media (max-width: 769px) and (max-width: 1200px) {
-    .gallery-grid {
-        grid-template-columns: repeat(6, 100px);
-    }
-
+    
     .close, .prev, .next {
         width: 40px;
         height: 40px;
@@ -341,9 +341,6 @@ section {
 
 /* For extra large screens */
 @media (max-width: 1201px) {
-    .gallery-grid {
-        grid-template-columns: repeat(8, 100px);
-    }
 }
 
 /* High Contrast Mode Support */
