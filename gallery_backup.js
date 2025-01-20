@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     let currentIndex = 0;
-    let currentGalleryImages = []; // Store current gallery's images
+    let images = [];
 
     // Touch handling variables
     let touchStartX = 0;
@@ -29,7 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const text = await response.text();
             
             // Convert text file into array of image paths
-            const galleryImages = text.split('\n')
+            // Filter out empty lines and comments
+            const images = text.split('\n')
                 .map(line => line.trim())
                 .filter(line => line && !line.startsWith('#'))
                 .map(filename => baseImagePath ? `${baseImagePath}/${filename}` : filename);
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
             galleryElement.innerHTML = '';
             
             // Create gallery items
-            galleryImages.forEach((src, index) => {
+            images.forEach((src, index) => {
                 const item = document.createElement('div');
                 item.className = 'gallery-item';
                 
@@ -60,14 +61,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
                 // Handle click events with the images array
                 item.addEventListener('click', () => {
-                    if (typeof onImageClick === 'function') {
-                        currentGalleryImages = galleryImages; // Update current gallery images
-                        onImageClick(index, galleryImages);
+                        if (typeof onImageClick === 'function') {
+                        onImageClick(index, images);
                     }
                 });
             });
     
-            return galleryImages;
+                return images; // Return the array of images for potential further use
         } catch (error) {
             console.error('Error loading images:', error);
             galleryElement.innerHTML = '<p>Unable to load gallery images. Please try again later.</p>';
@@ -75,27 +75,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+
     // LOAD THE SKETCHES GALLERIES
+    // Calling the function for the black and white gallery
+
     loadGalleryImages(
         gallery,
         '/sketches/black_and_white/black_and_white_imagelist.txt',
         '/sketches/black_and_white',
-        openLightbox
-    );
+        openLightbox,
+    )
 
+    // Calling the function for the watercolours gallery
     loadGalleryImages(
         gallery_watercolours,
         '/sketches/watercolours/watercolours_imagelist.txt',
         '/sketches/watercolours',
-        openLightbox
-    );
+        openLightbox,
+    )
 
+    // Calling the function for the digital gallery
     loadGalleryImages(
         gallery_digital,
         '/sketches/digital/digital_imagelist.txt',
         '/sketches/digital',
-        openLightbox
-    );
+        openLightbox,
+    )
+
 
     function createSwipeHint() {
         if (!swipeHint) {
@@ -104,6 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
             swipeHint.textContent = 'Swipe for more images';
             lightbox.appendChild(swipeHint);
             
+            // Hide hint after 3 seconds
             setTimeout(() => {
                 swipeHint.style.display = 'none';
             }, 3000);
@@ -115,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function handleTouchMove(e) {
-        e.preventDefault();
+        e.preventDefault(); // Prevent scrolling while swiping
     }
 
     function handleTouchEnd(e) {
@@ -124,47 +131,48 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function handleSwipe() {
-        const swipeThreshold = 50;
+        const swipeThreshold = 50; // minimum distance for a swipe
         const swipeDistance = touchEndX - touchStartX;
         
         if (Math.abs(swipeDistance) > swipeThreshold) {
             if (swipeDistance > 0) {
+                // Swipe right - previous image
                 navigateImages('prev');
             } else {
+                // Swipe left - next image
                 navigateImages('next');
             }
         }
     }
 
     function navigateImages(direction) {
-        if (currentGalleryImages.length === 0) return;
-        
         if (direction === 'prev') {
-            currentIndex = (currentIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
         } else {
-            currentIndex = (currentIndex + 1) % currentGalleryImages.length;
+            currentIndex = (currentIndex + 1) % images.length;
         }
-        lightboxImg.src = currentGalleryImages[currentIndex];
+        lightboxImg.src = images[currentIndex];
         updateHash();
     }
 
     function updateHash() {
-        const imageName = currentGalleryImages[currentIndex].split('/').pop();
+        const imageName = paths[currentIndex].split('/').pop();
         history.replaceState(null, null, `#${imageName}`);
     }
 
-    function openLightbox(index, images) {
+    function openLightbox(index, paths) {
         currentIndex = index;
-        currentGalleryImages = images; // Update current gallery images
-        lightboxImg.src = images[currentIndex];
+        lightboxImg.src = paths[currentIndex];
         lightbox.style.display = 'block';
         updateHash();
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
 
+        // Show swipe hint on mobile
         if (window.innerWidth <= 768) {
             createSwipeHint();
         }
 
+        // Add touch event listeners
         lightbox.addEventListener('touchstart', handleTouchStart, false);
         lightbox.addEventListener('touchmove', handleTouchMove, false);
         lightbox.addEventListener('touchend', handleTouchEnd, false);
@@ -173,8 +181,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function closeLightbox() {
         lightbox.style.display = 'none';
         history.replaceState(null, null, ' ');
-        document.body.style.overflow = '';
+        document.body.style.overflow = ''; // Restore scrolling
         
+        // Remove touch event listeners
         lightbox.removeEventListener('touchstart', handleTouchStart);
         lightbox.removeEventListener('touchmove', handleTouchMove);
         lightbox.removeEventListener('touchend', handleTouchEnd);
@@ -195,18 +204,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Add double-tap support for mobile
     let lastTap = 0;
     lightbox.addEventListener('touchend', function(e) {
         const currentTime = new Date().getTime();
         const tapLength = currentTime - lastTap;
         
         if (tapLength < 500 && tapLength > 0) {
+            // Double tap detected
             closeLightbox();
             e.preventDefault();
         }
         lastTap = currentTime;
     });
 
+    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (lightbox.style.display === 'block') {
             if (e.key === 'Escape') {
@@ -221,17 +233,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Check for direct link to image
     window.addEventListener('load', () => {
-        if (window.location.hash) {
+        if (window.location.hash && images.length > 0) {
             const imageName = window.location.hash.slice(1);
-            const findImage = (images) => images.findIndex(src => src.includes(imageName));
-            
-            // Search in all galleries
-            if (currentGalleryImages.length > 0) {
-                const imageIndex = findImage(currentGalleryImages);
-                if (imageIndex !== -1) {
-                    openLightbox(imageIndex, currentGalleryImages);
-                }
+            const imageIndex = images.findIndex(src => src.includes(imageName));
+            if (imageIndex !== -1) {
+                openLightbox(imageIndex);
             }
         }
     });
+
+    // Load images when the page loads
+    loadImages();
 });
