@@ -61,7 +61,7 @@ a {
 }
 
 a:hover {
-    background: var(--background-color);
+    background: var(--background-color); 
 }
 
 a.active {
