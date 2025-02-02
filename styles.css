@@ -66,8 +66,8 @@ a:hover {
 
 a.active {
     background: var(--primary-color);
-    color: white;
-}
+    color: var(--primary-color);
+}    
 
 /* Navigation */
 nav {
@@ -160,10 +160,6 @@ section {
     width: 100%;
     box-sizing: border-box;
     text-align: center;
-}
-
-.gallery-grid-books a {
-
 }
 
 .gallery-grid-books img {
