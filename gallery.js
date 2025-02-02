@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const gallery = document.getElementById('gallery-bandw');
+    const gallery_bandw = document.getElementById('gallery-bandw');
     const gallery_watercolours = document.getElementById('gallery-watercolours');
     const gallery_digital = document.getElementById('gallery-digital');
     const lightbox = document.getElementById('lightbox');

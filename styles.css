@@ -134,6 +134,22 @@ section {
     margin-bottom: calc(var(--spacing-unit) * 2);
 }
 
+/* Gallery Books */
+.gallery-grid-books {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 110px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.gallery-grid-books img {
+    width: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+
+
 /* Gallery Grid */
 
 .gallery-container {
