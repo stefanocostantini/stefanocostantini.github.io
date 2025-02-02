@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const gallery = document.getElementById('gallery');
+    const gallery = document.getElementById('gallery-bandw');
     const gallery_watercolours = document.getElementById('gallery-watercolours');
     const gallery_digital = document.getElementById('gallery-digital');
     const lightbox = document.getElementById('lightbox');
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let swipeHint = null;
 
     // Show loading state
-    gallery.innerHTML = '<div class="loading">Loading gallery</div>';
+    gallery_bandw.innerHTML = '<div class="loading">Loading gallery</div>';
     gallery_watercolours.innerHTML = '<div class="loading">Loading gallery</div>';
     gallery_digital.innerHTML = '<div class="loading">Loading gallery</div>';
 
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // LOAD THE SKETCHES GALLERIES
     loadGalleryImages(
-        gallery,
+        gallery_bandw,
         '/sketches/black_and_white/black_and_white_imagelist.txt',
         '/sketches/black_and_white',
         openLightbox
