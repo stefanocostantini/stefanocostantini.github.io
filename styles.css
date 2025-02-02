@@ -142,14 +142,14 @@ section {
     box-sizing: border-box;
 }
 
-.gallery-grid-books img {
+.gallery-grid-books book img {
     width: 100px;
     object-fit: cover;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                 box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.gallery-grid-books img:hover {
+.gallery-grid-books book img:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
