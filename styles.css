@@ -143,7 +143,7 @@ section {
 }
 
 .gallery-grid-books img {
-    width: 50%;
+    width: 100px;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
