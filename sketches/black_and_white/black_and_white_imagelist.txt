@@ -7,6 +7,4 @@
 070-islington.jpeg
 080-coventgarden.jpeg
 090-wimbledon.jpeg
-100-brunswicksquare.jpeg
-110-ststephenhampstead.jpeg
-120-thelandor.jpeg
+130_open_book.jpeg
