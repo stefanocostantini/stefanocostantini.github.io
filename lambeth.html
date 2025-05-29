@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Waste Collection API</title>
+</head>
+<body>
+    <script>
+        // ========================================
+        // CHANGE THIS UPRN TO YOUR SPECIFIC VALUE
+        const UPRN = "323313331";  // <-- PUT YOUR UPRN HERE
+        // ========================================
+
+        async function getWasteCollectionData(uprn) {
+            try {
+                // Step 1: Get parent UPRN and service data
+                const parentData = await fetch('/WhitespaceComms/GetParentUPRN', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        "uprn": uprn, 
+                        "includeEventTypes": false, 
+                        "includeFlags": true 
+                    })
+                }).then(r => r.json());
+
+                // Step 2: Get services for the original UPRN
+                const childServices = await fetch('/WhitespaceComms/GetServicesByUprn', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        "uprn": uprn, 
+                        "includeEventTypes": false, 
+                        "includeFlags": true 
+                    })
+                }).then(r => r.json());
+
+                let finalServices = childServices;
+
+                // Step 3: If there's a parent UPRN, get parent services and merge
+                if (parentData.success && parentData.parent) {
+                    const parentServices = await fetch('/WhitespaceComms/GetServicesByUprn', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ 
+                            "uprn": parentData.parent, 
+                            "includeEventTypes": false, 
+                            "includeFlags": true 
+                        })
+                    }).then(r => r.json());
+
+                    // Merge services (simplified version of the complex logic)
+                    finalServices = mergeServices(parentServices, childServices);
+                }
+
+                // Step 4: Get coordinates (optional)
+                let coordinates = null;
+                try {
+                    const coordData = await fetch(`/llpg/getCoordinateFromUPRN?uprn=${uprn}`)
+                        .then(r => r.json());
+                    if (coordData.payload && coordData.payload.success) {
+                        coordinates = {
+                            lat: coordData.payload.coordinate.lat,
+                            lng: coordData.payload.coordinate.lng
+                        };
+                    }
+                } catch (e) {
+                    // Coordinates are optional
+                }
+
+                // Step 5: Process and return clean JSON
+                return processServicesData(finalServices, coordinates, uprn);
+
+            } catch (error) {
+                return {
+                    success: false,
+                    error: error.message,
+                    uprn: uprn
+                };
+            }
+        }
+
+        function mergeServices(parentServices, childServices) {
+            // Simplified merge logic
+            const merged = { ...parentServices };
+            
+            // Add child services for specific types (food waste, etc.)
+            if (childServices.SiteServices) {
+                childServices.SiteServices.forEach(service => {
+                    // Add food waste services from child
+                    if (service.ServiceDescription && 
+                        service.ServiceDescription.toLowerCase().includes('food')) {
+                        merged.SiteServices.push(service);
+                    }
+                });
+            }
+
+            return merged;
+        }
+
+        function processServicesData(servicesData, coordinates, uprn) {
+            const result = {
+                success: true,
+                uprn: uprn,
+                coordinates: coordinates,
+                services: [],
+                lastUpdated: new Date().toISOString()
+            };
+
+            if (!servicesData.SiteServices) {
+                return { ...result, success: false, error: "No services found" };
+            }
+
+            servicesData.SiteServices.forEach(service => {
+                // Filter out expired services
+                if (service.SiteServiceValidTo && 
+                    service.SiteServiceValidTo !== '01/01/0001' &&
+                    service.SiteServiceValidTo !== '04/02/2024') {
+                    
+                    const expiry = new Date(service.SiteServiceValidTo.split('/').reverse().join('-'));
+                    if (expiry < new Date()) {
+                        return; // Skip expired services
+                    }
+                }
+
+                const processedService = {
+                    serviceId: service.ServiceID,
+                    serviceName: service.ServiceDescription,
+                    serviceItemName: service.ServiceItemName,
+                    containerType: service.Container ? service.Container.Name : null,
+                    containerDisplayPhrase: service.Container ? service.Container.DisplayPhrase : null,
+                    nextCollectionDate: service.NextCollectionDate,
+                    roundSchedule: service.RoundSchedule,
+                    validTo: service.SiteServiceValidTo,
+                    rounds: service.Rounds ? service.Rounds.map(round => ({
+                        roundCode: round.RoundCode,
+                        scheduleId: round.RoundRoundAreaServiceScheduleID
+                    })) : []
+                };
+
+                // Add schedule information
+                if (servicesData.SiteSchedules) {
+                    const schedules = servicesData.SiteSchedules.filter(schedule => 
+                        service.Rounds && service.Rounds.some(round => 
+                            round.RoundRoundAreaServiceScheduleID === schedule.RoundRoundAreaServiceScheduleID
+                        )
+                    );
+                    
+                    processedService.schedules = schedules.map(schedule => ({
+                        description: schedule.ScheduleDescription,
+                        scheduleId: schedule.RoundRoundAreaServiceScheduleID
+                    }));
+                }
+
+                result.services.push(processedService);
+            });
+
+            return result;
+        }
+
+        // Auto-run with the hardcoded UPRN
+        getWasteCollectionData(UPRN).then(data => {
+            // Output clean JSON to page
+            document.body.innerHTML = '<pre style="font-family: monospace; white-space: pre-wrap; word-wrap: break-word;">' + 
+                JSON.stringify(data, null, 2) + '</pre>';
+        }).catch(error => {
+            document.body.innerHTML = '<pre style="color: red;">' + 
+                JSON.stringify({
+                    success: false,
+                    error: "Failed to fetch data: " + error.message,
+                    uprn: UPRN
+                }, null, 2) + '</pre>';
+        });
+    </script>
+</body>
+</html>
