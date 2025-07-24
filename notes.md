@@ -1,4 +1,8 @@
 ### To convert sketches to a smaller size
 
 ```
-for i in *.jpg; do convert "$i" -resize 800x -quality 85 "web-$i"; done
+mkdir -p modified
+for file in originals/*.JPG; do
+    convert "$file" -resize 800x800\> -quality 85 "modified/$(basename "$file")"
+done
+```
