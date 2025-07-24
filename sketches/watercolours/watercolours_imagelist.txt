@@ -2,7 +2,6 @@
 020-haywards.jpeg
 050-islington.jpeg
 060-thecommon.jpeg
-070-claphamtap.jpeg
 081_the_common_cafe_A4.jpeg
 090_sarria.jpeg
 100_theox.jpeg
@@ -11,3 +10,9 @@
 130_turkish.jpeg
 140_madelina_brixton.jpeg
 150_two_brewers_oldstreet.jpeg
+160_monmouth.jpeg
+170_thebedford.jpeg
+180_newmanarms.jpeg
+190_newtonschool.jpeg
+200_claphamtap.jpeg
+210_manze.jpeg
