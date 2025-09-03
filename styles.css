@@ -30,13 +30,13 @@ body {
 /* Typography */
 h1, h2, h3, h4, h5 {
     font-family: 'Futura', 'Montserrat', sans-serif;
-    font-weight: 700;
+    font-weight: 650;
     letter-spacing: -0.5px;
     line-height: 1.2;
 }
 
 h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(1.9rem, 5vw, 3.5rem);
     margin-bottom: var(--spacing-unit);
 }
 
@@ -117,7 +117,7 @@ nav a.active {
     color: white;
 }
 
-/* Header */
+/* Header & footer*/
 header {
     max-width: var(--container-width);
     margin: 0 auto;
@@ -149,6 +149,16 @@ header {
     font-weight: 500;
 }
 
+footer {
+    border-top: #dfe6e9 1px solid;
+    padding-top: 10px;
+}
+
+footer p {
+    line-height: 1.6;
+    margin-top: 0;
+}
+
 /* Main Content */
 main {
     max-width: var(--container-width);
@@ -167,7 +177,7 @@ section {
     grid-template-columns: repeat(auto-fit, 110px);
     width: 100%;
     box-sizing: border-box;
-    text-align: center;
+    text-align: right;
     gap: 40px;
 }
 
