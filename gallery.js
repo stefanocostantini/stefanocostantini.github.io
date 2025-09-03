@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const gallery_watercolours = document.getElementById('gallery-watercolours');
     const gallery_digital = document.getElementById('gallery-digital');
     // const gallery_bandw = document.getElementById('gallery-bandw');
+    const gallery_people = document.getElementById('gallery-people');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     let currentIndex = 0;
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     gallery_watercolours.innerHTML = '<div class="loading">Loading gallery</div>';
     gallery_digital.innerHTML = '<div class="loading">Loading gallery</div>';
     // gallery_bandw.innerHTML = '<div class="loading">Loading gallery</div>';
+    gallery_people.innerHTML = '<div class="loading">Loading gallery</div>';
 
     // Function to load images from the text file
     async function loadGalleryImages(galleryElement, imageListPath, baseImagePath = '', onImageClick = null) {
@@ -97,6 +99,13 @@ document.addEventListener('DOMContentLoaded', function() {
     //    openLightbox
     //);
 
+    loadGalleryImages(
+        gallery_people,
+        '/sketches/people/people_imagelist.txt',
+        '/sketches/people',
+        openLightbox
+    );
+    
 
     function createSwipeHint() {
         if (!swipeHint) {
