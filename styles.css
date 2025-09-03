@@ -121,7 +121,7 @@ nav a.active {
 header {
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: calc(var(--spacing-unit) * 2) var(--spacing-unit);
+    padding: calc(var(--spacing-unit) * 1.5) var(--spacing-unit);
     text-align: left;
 }
 
@@ -161,17 +161,20 @@ section {
 }
 
 /* Gallery Books */
+
 .gallery-grid-books {
     display: grid;
     grid-template-columns: repeat(auto-fit, 110px);
     width: 100%;
     box-sizing: border-box;
     text-align: center;
+    gap: 40px;
 }
 
 .gallery-grid-books img {
-    width: 100px;
+    width: 120%;
     object-fit: cover;
+    border-radius: 10px;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                 box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
