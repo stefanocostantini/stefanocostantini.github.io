@@ -1,11 +1,5 @@
-010-therailway.jpeg
-020-haywards.jpeg
-050-islington.jpeg
-060-thecommon.jpeg
 081_the_common_cafe_A4.jpeg
-090_sarria.jpeg
 100_theox.jpeg
-110_barbershop.jpeg
 120_chocolit.jpeg
 130_turkish.jpeg
 140_madelina_brixton.jpeg
@@ -16,3 +10,8 @@
 190_newtonschool.jpeg
 200_claphamtap.jpeg
 210_manze.jpeg
+220_graftonsq.jpeg
+230_thefox.jpeg
+240_yellowdoor.jpeg
+250_brickcafe.jpeg
+260_ryebooks.jpeg
