@@ -17,7 +17,7 @@
 }
 
 body {
-    font-family: 'Futura', 'Open Sans', sans-serif;
+    font-family: 'Futura', 'Jost', 'Open Sans', sans-serif;
     font-weight: 400;
     line-height: 1.6;
     height: 100%;
@@ -29,8 +29,8 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5 {
-    font-family: 'Futura', 'Montserrat', sans-serif;
-    font-weight: 650;
+    font-family: 'Futura', 'Jost', 'Open Sans', sans-serif;
+    font-weight: 600;
     letter-spacing: -0.5px;
     color: #dddddd;
     line-height: 1.2;
@@ -52,7 +52,7 @@ h3 {
 }   
 
 p {
-    font-family: 'Futura', 'Open Sans', sans-serif;
+    font-family: 'Futura', 'Jost', 'Open Sans', sans-serif;
     font-weight: 400;
     line-height: 1.6;
     font-size: clamp(1.1rem, 1.1vw, 1.1rem);
@@ -61,7 +61,7 @@ p {
 }
 
 a {
-    font-family: 'Futura', 'Open Sans', sans-serif;
+    font-family: 'Futura', 'Jost', 'Open Sans', sans-serif;
     font-weight: 400;
     line-height: 1.6;
     color: var(--primary-color);
