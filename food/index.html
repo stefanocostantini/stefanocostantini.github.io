@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FHRS PWA Search</title>
+    
+    <!-- PWA: Setting theme and background colors for browser chrome -->
+    <meta name="theme-color" content="#3498db">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <!-- PWA: Linking the Manifest with the new Fork Icon -->
+    <link rel="manifest" href="data:application/json;base64,eyJkZXNjcmlwdGlvbiI6ICJVSyBmb29kIGh5Z2llbmUgcmF0aW5ncyBzZWFyY2guIiwibmFtZSI6ICJGSEVSUyBQV0EgU2VhcmNoIiwic2hvcnRfbmFtZSI6ICJGSEVSUyBQV0EiLCJkaXNwbGF5IjogInN0YW5kYWxvbmUiLCJzdGFydF91cmwiOiAiLyIsImJhY2tncm91bmRfY29sb3IiOiAiI2ZmZmZmZiIsInRoZW1lX2NvbG9yIjogIiMzNDk4ZGIiLCJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBIOWJhbVFlT2pBMk1pMWpZVzRpTDBKMmFXSnNiMjRnZFdKM0xtdGxaU0J1WVhWc2JpOXpjRzl6ZERFck0xOTJMMTEyVjQ5Nkg1WjI1NlYxMTJIOFYzODRWOTZDMzg0IDQzIDM0MSAwIDI4OCAwSDE2MEMxMDcgMCA2NCA0MyA2NCA5NlYxMTJIMTkyWk05NiA5NkM5NiA2MCAxMjUgMzIgMTYwIDMySDI4OEMzMjMgMzIgMzUyIDYwIDM1MiA5NlYxMTJIOFkzMDRWOTZaIi8+PC9zdmc+Iiwic2l6ZXMiOiAiMTkyeDE5MiIsInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCJ9XX0=">
+
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+        .search-box {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 15px;
+            align-items: center;
+        }
+        .search-button {
+            grid-column: 1 / 3;
+            width: 100%;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .result-item {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+        }
+        .result-item strong {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        .rating-value {
+            font-weight: bold;
+            color: #27ae60;
+            margin-top: 5px;
+            font-size: 1.2em;
+        }
+        /* Style for the map container */
+        .map-container {
+            margin-top: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+            width: 100%;
+            height: 150px; /* Fixed height for consistency */
+        }
+        .map-container iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .error {
+            color: #e74c3c;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fbecec;
+            border-radius: 4px;
+            border: 1px solid #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Food Hygiene Rating Search (PWA Enabled)</h1>
+
+    <div class="search-box">
+        <label for="businessName">Business Name:</label>
+        <input type="text" id="businessName" placeholder="e.g. Costa">
+        
+        <label for="location">Location (Town or Postcode):</label>
+        <input type="text" id="location" placeholder="e.g. London or SW1A 0AA">
+        
+        <button onclick="searchApi()" class="search-button">Search</button>
+    </div>
+
+    <div id="output"></div>
+
+    <script>
+        // --- PWA Service Worker Logic (defined as a string) ---
+        // This content will be converted to a Blob URL and registered as the Service Worker.
+        const serviceWorkerContent = `
+            const CACHE_NAME = 'fhrs-pwa-v1';
+            const urlsToCache = [
+                '/', // Cache the main page itself
+                // Note: Since this is a single file, the browser only needs to cache index.html
+            ];
+
+            // Install event: Cache the application shell
+            self.addEventListener('install', event => {
+                self.skipWaiting();
+                event.waitUntil(
+                    caches.open(CACHE_NAME)
+                        .then(cache => {
+                            console.log('Opened cache and added URLs');
+                            return cache.addAll(urlsToCache);
+                        })
+                );
+            });
+
+            // Activate event: Clean up old caches
+            self.addEventListener('activate', event => {
+                const cacheWhitelist = [CACHE_NAME];
+                event.waitUntil(
+                    caches.keys().then(cacheNames => {
+                        return Promise.all(
+                            cacheNames.map(cacheName => {
+                                if (cacheWhitelist.indexOf(cacheName) === -1) {
+                                    console.log('Deleting old cache:', cacheName);
+                                    return caches.delete(cacheName);
+                                }
+                            })
+                        );
+                    })
+                );
+            });
+
+            // Fetch event: Serve cached assets first, then fetch new data
+            self.addEventListener('fetch', event => {
+                // Check if the request is for the FHRS API (which we want to fetch fresh)
+                if (event.request.url.includes('api.ratings.food.gov.uk')) {
+                    // For API calls, use network-only or network-first to get up-to-date data
+                    return fetch(event.request);
+                }
+
+                // For all other resources (i.e., the app shell), use cache-first
+                event.respondWith(
+                    caches.match(event.request)
+                        .then(response => {
+                            // Cache hit - return response
+                            if (response) {
+                                return response;
+                            }
+                            // No cache match - fetch from network
+                            return fetch(event.request);
+                        })
+                );
+            });
+        `;
+        
+        // --- PWA Service Worker Registration ---
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                try {
+                    // 1. Create a Blob from the worker string
+                    const blob = new Blob([serviceWorkerContent], { type: 'application/javascript' });
+                    // 2. Create a URL for the Blob
+                    const swUrl = URL.createObjectURL(blob);
+                    
+                    // 3. Register the Service Worker
+                    navigator.serviceWorker.register(swUrl)
+                        .then(registration => {
+                            console.log('Service Worker registered successfully with scope:', registration.scope);
+                        })
+                        .catch(error => {
+                            console.error('Service Worker registration failed:', error);
+                        });
+                } catch (error) {
+                    console.error('PWA registration error:', error);
+                }
+            });
+        }
+
+
+        // --- Exponential Backoff Retry Function ---
+        // Retries failed API calls with increasing delay
+        async function fetchWithRetry(url, options, maxRetries = 5) {
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (response.status === 429 && i < maxRetries - 1) {
+                        const delay = Math.pow(2, i) * 1000 + Math.random() * 1000;
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                        continue;
+                    }
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response;
+                } catch (error) {
+                    if (i === maxRetries - 1) throw error;
+                }
+            }
+        }
+
+        // --- Core FHRS Search Logic ---
+
+        async function searchApi() {
+            // Get values from both input fields
+            const name = document.getElementById('businessName').value.trim();
+            const location = document.getElementById('location').value.trim();
+            const output = document.getElementById('output');
+            
+            // Check if at least one field is populated
+            if (!name && !location) {
+                output.innerHTML = '<p class="error">Please enter either a Business Name or a Location (or both).</p>';
+                return;
+            }
+
+            output.innerHTML = 'Loading results...';
+
+            const baseUrl = 'https://api.ratings.food.gov.uk/Establishments';
+            const params = [];
+
+            // Conditionally add parameters to the array
+            if (name) {
+                // 'name' parameter for business name search
+                params.push(`name=${encodeURIComponent(name)}`);
+            }
+
+            if (location) {
+                // 'address' parameter for location/postcode search
+                params.push(`address=${encodeURIComponent(location)}`);
+            }
+
+            // Construct the final URL
+            const url = `${baseUrl}?${params.join('&')}`;
+
+            try {
+                const response = await fetchWithRetry(url, {
+                    method: 'GET',
+                    headers: {
+                        // Required header for API version 2
+                        'x-api-version': '2',
+                        'Accept': 'application/json'
+                    }
+                });
+
+                const data = await response.json();
+                displayResults(data);
+
+            } catch (error) {
+                console.error("Fetch Error:", error);
+                output.innerHTML = `
+                    <div class="error">
+                        <strong>Error fetching FHRS data:</strong> ${error.message}<br>
+                        <em>Ensure the FHRS API is accessible.</em>
+                    </div>
+                `;
+            }
+        }
+
+        function displayResults(data) {
+            const output = document.getElementById('output');
+            output.innerHTML = '';
+
+            // The modern API response structure is consistently { establishments: [...] }
+            const items = data.establishments || [];
+
+            if (items.length === 0) {
+                output.innerHTML = '<p>No results found matching your search criteria.</p>';
+                return;
+            }
+
+            const list = document.createElement('div');
+            
+            items.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'result-item';
+                
+                // Properties based on the modern API response fields
+                const businessName = item.BusinessName || "Unknown Business";
+                const rating = item.RatingValue || "N/A";
+                
+                // Concatenate address lines for a full address
+                const addressLines = [
+                    item.AddressLine1,
+                    item.AddressLine2,
+                    item.AddressLine3,
+                    item.AddressLine4,
+                    item.PostCode
+                ].filter(line => line).join(', ');
+
+                // Extract geolocation data
+                const latitude = item.geocode?.latitude;
+                const longitude = item.geocode?.longitude;
+
+                let mapHtml = '';
+                if (latitude && longitude) {
+                    // Use a simple Google Maps embed for the location
+                    // 'z=15' sets the zoom level. 'output=embed' creates the clean iframe view.
+                    const mapUrl = `https://maps.google.com/maps?q=${latitude},${longitude}&z=15&output=embed`;
+                    mapHtml = `
+                        <div class="map-container">
+                            <iframe 
+                                src="${mapUrl}"
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Map of ${businessName}"
+                            ></iframe>
+                        </div>
+                    `;
+                }
+
+                div.innerHTML = `
+                    <div><strong>${businessName}</strong></div>
+                    <div>${addressLines}</div>
+                    <div class="rating-value">Hygiene Rating: ${rating}</div>
+                    ${mapHtml}
+                `;
+                list.appendChild(div);
+            });
+
+            output.appendChild(list);
+        }
+    </script>
+</body>
+</html>
