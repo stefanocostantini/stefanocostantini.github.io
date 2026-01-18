@@ -16,3 +16,8 @@
 260_villagebooks.jpeg
 270_theenterprise.jpeg
 280_theoldredlion.jpeg
+290_daunt.jpeg
+300_burlington.jpeg
+310_westminsterabbey.jpeg
+320_teatrelliure.jpeg
+330_rules.jpeg
