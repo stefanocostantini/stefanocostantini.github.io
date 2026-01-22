@@ -219,10 +219,14 @@ section {
 
 .gallery-grid-books {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 110px);
+    grid-template-columns: repeat(auto-fit, 130px);
     width: 100%;
     box-sizing: border-box;
     gap: 40px;
+}
+
+.gallery-grid-books .book {
+    width: 130px;
 }
 
 .gallery-grid-books p {
@@ -237,10 +241,10 @@ section {
 }   
 
 .gallery-grid-books img {
-    width: 120%;
+    width: 100%;
     object-fit: cover;
     border-radius: 10px;
-    text-align: center;
+    display: block;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                 box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -437,10 +441,16 @@ section {
 
 /* For mobile screens */
 @media (max-width: 480px) {
+    .gallery-grid-books {
+        justify-content: center;
+    }
 }
 
 /* For tablet screens */
 @media (min-width: 481px) and (max-width: 768px) {
+    .gallery-grid-books {
+        justify-content: center;
+    }
 }
 
 /* For desktop screens */
