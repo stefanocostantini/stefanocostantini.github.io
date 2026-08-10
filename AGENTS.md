@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to AI coding assistants (including Antigravity) when working with code in this repository.
 
 ## Repository Overview
 
@@ -9,7 +9,7 @@ This is a personal website hosted on GitHub Pages (stefanocostantini.github.io) 
 ## Site Structure
 
 ### Main Pages
-- **index.html** - Homepage displaying sketch galleries (watercolours, digital, people), ebook downloads, and blog post links
+- **index.html** - Homepage displaying sketch galleries (watercolours, digital, people), blog post links, music compositions, and ebook downloads
 - **gallery.html** - Standalone gallery page (less actively used)
 - **lambeth.html** - Utility page for Lambeth waste collection API interactions (not part of main site content)
 - **food/index.html** - PWA-enabled food hygiene ratings search tool for UK establishments
@@ -18,6 +18,8 @@ This is a personal website hosted on GitHub Pages (stefanocostantini.github.io) 
 - **sketches/** - Organized by category (watercolours/, digital/, people/, black_and_white/)
   - Each category contains images and a `*_imagelist.txt` file listing image filenames
   - The `.txt` files drive the dynamic gallery loading in gallery.js
+- **album_covers/** - Cover images for musical compositions (linked from index.html)
+- **album_scores/** - PDF sheet music / scores for musical compositions (downloadable from index.html)
 - **blog_posts/** - HTML files for blog content
 - **book_covers/** - Cover images for ebooks
 - **ebooks/** - EPUB files for download
