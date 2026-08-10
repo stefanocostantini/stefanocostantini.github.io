@@ -19,6 +19,7 @@ This is a personal website hosted on GitHub Pages (stefanocostantini.github.io) 
   - Each category contains images and a `*_imagelist.txt` file listing image filenames
   - The `.txt` files drive the dynamic gallery loading in gallery.js
 - **album_covers/** - Cover images for musical compositions (linked from index.html)
+- **album_scores/** - PDF sheet music / scores for musical compositions (downloadable from index.html)
 - **blog_posts/** - HTML files for blog content
 - **book_covers/** - Cover images for ebooks
 - **ebooks/** - EPUB files for download

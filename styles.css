@@ -210,15 +210,14 @@ section {
     margin-bottom: calc(var(--spacing-unit) * 2);
 }
 
-/* Gallery Books & Albums */
+/* Gallery Books */
 
 .books {
     width: 100%;
     text-align: center;
 }
 
-.gallery-grid-books,
-.gallery-grid-albums {
+.gallery-grid-books {
     display: grid;
     grid-template-columns: repeat(auto-fit, 130px);
     width: 100%;
@@ -226,26 +225,22 @@ section {
     gap: 40px;
 }
 
-.gallery-grid-books .book,
-.gallery-grid-albums .album {
+.gallery-grid-books .book {
     width: 130px;
 }
 
-.gallery-grid-books p,
-.gallery-grid-albums p {
+.gallery-grid-books p {
     font-size: 0.95rem;
     color: var(--secondary-color);
     margin-top: 8px;
     text-align: right;
 }  
 
-.gallery-grid-books a,
-.gallery-grid-albums a {
+.gallery-grid-books a {
     font-size: 0.95rem;
 }   
 
-.gallery-grid-books img,
-.gallery-grid-albums img {
+.gallery-grid-books img {
     width: 100%;
     object-fit: cover;
     border-radius: 10px;
@@ -254,14 +249,52 @@ section {
                 box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.gallery-grid-albums img {
-    aspect-ratio: 1 / 1;
-}
-
-.gallery-grid-books img:hover,
-.gallery-grid-albums img:hover {
+.gallery-grid-books img:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Gallery Albums */
+
+.gallery-grid-albums {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
+    width: 100%;
+    box-sizing: border-box;
+    gap: 40px;
+}
+
+.gallery-grid-albums .album {
+    max-width: 260px;
+    width: 100%;
+}
+
+.gallery-grid-albums .score-link {
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+    margin-top: 12px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.gallery-grid-albums .score-link a {
+    font-size: 0.95rem;
+    display: inline-block;
+}
+
+.gallery-grid-albums img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gallery-grid-albums img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 
